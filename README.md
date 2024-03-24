@@ -1,5 +1,8 @@
 # alttpr-frontend-vue3
 
+This project is a work in progress. This repository will probably never be used for the website.
+But instead will probably be copied in the existing repository.
+
 ## Project status
 
 ### Pages
@@ -10,7 +13,7 @@
 - [ ] Customizer page
 - [ ] Daily Challenge page
 - [x] Resources page
-- [ ] Game options page (Template is done, some translations still needed)
+- [x] Game options page
 - [ ] Organized play page
 - [ ] Updates page
 - [ ] Sprite options page

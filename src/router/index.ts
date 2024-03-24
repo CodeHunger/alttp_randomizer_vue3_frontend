@@ -4,7 +4,7 @@ import StartView from "../views/StartView.vue";
 import WatchView from "@/views/WatchView.vue";
 import ResourcesView from "@/views/ResourcesView.vue";
 import PageView from "@/views/PageView.vue";
-import OptionsView from "@/views/OptionsView.vue";
+import OptionsView from "@/views/Options/OptionsView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
