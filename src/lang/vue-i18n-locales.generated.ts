@@ -85,6 +85,123 @@ export default {
                 }
             }
         },
+        "races": {
+            "header": "Organisiertes Spielen",
+            "cards": {
+                "races": {
+                    "header": "Tägliche und wöchentliche Rennen",
+                    "sections": [
+                        {
+                            "header": "",
+                            "content": [
+                                "Die meisten Rennen werden auf <a href=\"https://racetime.gg/alttpr\" target=\"_blank\">RaceTime.gg</a> geführt. Macht euch am besten im Vorfeld mit der Seite vertraut, damit später dem Rennen nichts im Weg steht.",
+                                "Bevor ihr mit den Rennen anfangt, lest euch die <a href=\"http://alttp.mymm1.com/wiki/ALTTPR_Racing_Ruleset\">allgemeinen Regeln für Rennen des ALTTPR Racing Councils</a> durch. Bedenkt, dass die Regeln einzelner Turniere abweichen können. Im Zweifel fragt im Vorfeld nach den geltenden Regeln."
+                            ]
+                        },
+                        {
+                            "header": "ALTTPR Ladder",
+                            "content": [
+                                "Die <a href=\"https://alttprladder.com/\" target=\"_blank\">ALTTPR Ladder</a> ist eine 1v1 Elo-Rangliste, eine \"ALTTP Randomizer\"-Liga, welche komplett über Discord läuft. In diesem System werden mehere 1v1-Rennen über den Tag organisiert und gespielt. Die Rangliste basiert auf dem System der Standard Elo 32k-Gewichtung."
+                            ]
+                        },
+                        {
+                            "header": "SpeedGaming Daily Racing Series",
+                            "content": [
+                                "<a href=\"https://speedgaming.org/\" target=\"_blank\">SpeedGaming</a> veranstaltet eine Reihe von täglichen Rennen, welche auf <a href=\"https://racetime.gg/alttpr\" target=\"_blank\">RaceTime.gg</a> stattfinden. Wirf einen Blick in den <a href=\"http://speedgaming.org/alttprdaily/\" target=\"_blank\">Zeitplan der kommenden täglichen Rennen</a>."
+                            ]
+                        },
+                        {
+                            "header": "Overworld Glitches Weekly",
+                            "content": [
+                                "Das wöchentliche Rennen mit Overworld Glitches findet jede Woche in der Nacht von Mittwoch auf Donnerstag um 04{30} Uhr Mitteleuropäischer Zeit (MEZ)  auf <a href=\"https://racetime.gg/alttpr\" target=\"_blank\">RaceTime.gg</a> statt."
+                            ]
+                        },
+                        {
+                            "header": "Spontane Rennen",
+                            "content": [
+                                "Die ganzen geplanten Rennen passen nicht in euren Zeitplan oder ihr sucht nach einem Rennen mit ungewöhnlichen Einstellungen? Tretet einfach einem spontanen Rennen bei! Es gibt viele motivierte Mitspieler zu allen Tageszeiten. Werft einen Blick auf den #race-planning Kanal im <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\">internationalen Discord</a>!"
+                            ]
+                        }
+                    ]
+                },
+                "tournament": {
+                    "header": "Turniere",
+                    "sections": [
+                        {
+                            "header": "",
+                            "content": [
+                                "Tretet einem der großen Turniere bei und erlebt spannende Rennen zusammen mit den besten Spielern und erfahrenen Kommentatoren! Turniere finden das ganze Jahr über statt, auf <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\">Discord</a> gibt es die neuesten Informationen."
+                            ]
+                        },
+                        {
+                            "header": "ALTTP Randomizer Main Tournament",
+                            "content": [
+                                "Erlebt hautnah, wie die besten Spieler weltweit antreten und um den Sieg des Turniers (und somit auf eine Verewigung im Spiel selbst im Houlihan-Raum) kämpfen. Seid ihr der Herausforderung gewachsen, euch mit den stärksten Gegnern zu messen? Dann tretet dem <a href=\"https://discord.gg/B2kGXxTD6g\" target=\"_blank\">ALTTPR Turnier-Discord</a> bei und haltet nach Qualifikationsspielen Ausschau!"
+                            ]
+                        },
+                        {
+                            "header": "Challenge Cup",
+                            "content": [
+                                "Der <a href=\"https://discord.gg/982W72p\" target=\"_blank\">Challenge Cup</a> ist ein Nebenturnier des Main Tournaments für alle, welche die Qualifikation für das Hauptturnier nicht geschafft haben."
+                            ]
+                        },
+                        {
+                            "header": "ALTTPR League",
+                            "content": [
+                                "Die <a href=\"https://alttprleague.com/\" target=\"_blank\">ALTTPR-Liga</a> ist ein teambasiertes ALTTPR-Turnier. Spieler schließen sich zu dritt zu einem Team zusammen und messen sich mit anderen Teams in verschiedenen Spiel-Einstellungen."
+                            ]
+                        },
+                        {
+                            "header": "Go Mode Podcast Mentor Tournament",
+                            "content": [
+                                "<a href=\"https://gomodepodcast.com/\" target=\"_blank\">Go Mode Podcast</a> veranstaltet jährlich ein Turnier für Neulinge. Dabei werden die Mitspieler von einem Mentor betreut, welcher durch die Rennen begleitet. Die perfekte Vorbereitung für weitere große oder kleine Turniere."
+                            ]
+                        },
+                        {
+                            "header": "ALTTPR Spoiler Tournament",
+                            "content": [
+                                "Das <a href=\"https://discord.gg/Jg34MuE\" target=\"_blank\">ALTTPR Spoiler-Turnier</a> findet jährlich statt und gibt den Teilnehmern vor jedem Rennen den kompletten Spoiler Log zur Vorbereitung. Hier werden besonders Spielstärke und Entscheidungsfindung gefordert!"
+                            ]
+                        },
+                        {
+                            "header": "ALTTPR Glitched Tournaments",
+                            "content": [
+                                "Das <a href=\"https://discord.gg/adac5FG\" target=\"_blank\">ALTTPR Glitched Turnier</a> richtet sich an erfahrene Spieler, welche durch \"major glitches\" das Spiel auf interessante und ungewöhnliche Art und Weise beenden können."
+                            ]
+                        },
+                        {
+                            "header": "ALTTPR Crossworld Keysanity Tournament",
+                            "content": [
+                                "Im <a href=\"https://discord.gg/umCCQgr\" target=\"_blank\">ALTTPR Crossworld Keysanity Tournament</a> erwartet euch eine Mischung der Modi \"Crossworld entrance shuffle\" gepaart mit \"Keysanity\". Mit Notizen oder guten Erinnerungen werden die Spieler stark gefordert, um in diesem Gehirnjogging zu den Besten gehören zu können."
+                            ]
+                        }
+                    ]
+                },
+                "foreign_language": {
+                    "header": "Language-specific Tournaments and Events",
+                    "languages": [
+                        {
+                            "header": "Deutsch",
+                            "description": "Auf dem <a href=\"https://discord.gg/5zuANcS\" target=\"_blank\">Discord der deutschsprachigen ALTTPR-Community</a> gibt es alles, von Anfängertipps über freundschaftliche Rennen bis hin zu Turnieren.",
+                            "sections": [
+                                {
+                                    "header": "Deutsche ALTTPR-Turniere",
+                                    "content": [
+                                        "Es wird ca. einmal im Jahr ein großes Turnier für neue und erfahrene Spieler organisiert. Dazwischen gibt es unregelmäßig kleinere und ausgefallenere Turniere. Ankündigungen und alle Informationen gibt es auf dem <a href=\"https://discord.gg/5zuANcS\" target=\"_blank\">Community-Discord</a>."
+                                    ]
+                                },
+                                {
+                                    "header": "Deutsches ALTTPR-Weekly",
+                                    "content": [
+                                        "Jede Woche findet ein größeres Rennen statt, in dem man sich gegen andere Spieler aus der Community messen kann. Neben Open werden auch andere Modi gespielt, die immer durchwechseln. Auf dem <a href=\"https://discord.gg/5zuANcS\" target=\"_blank\">Discord</a> gibt es alle Informationen zu den nächsten Rennen und zur Teilnahme."
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
         "item": {
             "Random": "Zufällig",
             "BottleWithRandom": "Flasche (Zufällig)",
@@ -1795,6 +1912,171 @@ export default {
             "SomariaPlatform3": "Cane of Somaria Platform (Unused)",
             "MedallionTablet": "Medallion Tablet"
         },
+        "races": {
+            "header": "Organized Play",
+            "cards": {
+                "races": {
+                    "header": "Daily and Weekly Races",
+                    "sections": [
+                        {
+                            "header": "",
+                            "content": [
+                                "Most races are done through <a href=\"https://racetime.gg/alttpr\" target=\"_blank\">RaceTime.gg</a>. Be sure to check them out for more info on how to get in on the action!",
+                                "Before starting you should familiarize yourself with the <a href=\"http://alttp.mymm1.com/wiki/ALTTPR_Racing_Ruleset\">ALTTPR Racing Council’s General Racing Rules</a>, however individual tournaments or races may have rules that vary.  Check with the competition first to make sure you’re in the clear!"
+                            ]
+                        },
+                        {
+                            "header": "ALTTPR Ladder",
+                            "content": [
+                                "The <a href=\"https://alttprladder.com/\" target=\"_blank\">ALTTPR Ladder</a> is a 1v1 Elo Ladder, \"ALTTP Randomizer\" league, running completely on Discord.  The system is designed to do several 1v1 races throughout the day, and rankings will be based on standard Elo 32k weights."
+                            ]
+                        },
+                        {
+                            "header": "SpeedGaming Daily Racing Series",
+                            "content": [
+                                "<a href=\"https://speedgaming.org/\" target=\"_blank\">SpeedGaming</a> operates a daily race series, which are ran on <a href=\"https://racetime.gg/alttpr\" target=\"_blank\">RaceTime.gg</a>.  Check out <a href=\"http://speedgaming.org/alttprdaily/\" target=\"_blank\">their upcoming schedule of dailies.</a>"
+                            ]
+                        },
+                        {
+                            "header": "Overworld Glitches Weekly",
+                            "content": [
+                                "The Overworld Glitches Weekly runs at 10{30pm} Eastern every Wednesday on <a href=\"https://racetime.gg/alttpr\" target=\"_blank\">RaceTime.gg</a>."
+                            ]
+                        },
+                        {
+                            "header": "Pickup Races",
+                            "content": [
+                                "Scheduled races not fitting in with your schedule? Looking to race with some more uncommon options? Join a pickup race! You’ll find willing players at all hours of the day. Join the #race-planning channel in our <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\">Discord</a>!"
+                            ]
+                        }
+                    ]
+                },
+                "tournament": {
+                    "header": "Tournaments",
+                    "sections": [
+                        {
+                            "header": "",
+                            "content": [
+                                "Join us for exciting tournament action with expert commentary alongside elite play!  Tournaments are operating all the time, join <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\">Discord</a> to stay up to date!"
+                            ]
+                        },
+                        {
+                            "header": "ALTTP Randomizer Main Tournament",
+                            "content": [
+                                "Witness the best racers compete for the trophy and win themselves a coveted place on the Houlihan Telepathic Tile! Think you have what it takes to go toe-to-toe with the best? Join the <a href=\"https://discord.gg/B2kGXxTD6g\" target=\"_blank\">ALTTPR Tournaments Discord</a> and keep an eye out for qualifying races!"
+                            ]
+                        },
+                        {
+                            "header": "Challenge Cup",
+                            "content": [
+                                "The <a href=\"https://discord.gg/982W72p\" target=\"_blank\">Challenge Cup</a> is an overflow tournament for those who did not qualify for the main tournament."
+                            ]
+                        },
+                        {
+                            "header": "ALTTPR League",
+                            "content": [
+                                "The <a href=\"https://alttprleague.com/\" target=\"_blank\">ALTTPR League</a> is a yearly team-based ALTTPR Tournament.  Players form teams of three to compete head to head with other teams using various game settings."
+                            ]
+                        },
+                        {
+                            "header": "Go Mode Podcast Mentor Tournament",
+                            "content": [
+                                "<a href=\"https://gomodepodcast.com/\" target=\"_blank\">Go Mode Podcast</a> operates a yearly tournament intended for brand new players.  Players have a mentor to help them with at least some of their races, with the intent to prepare players for tournaments big and small."
+                            ]
+                        },
+                        {
+                            "header": "ALTTPR Spoiler Tournament",
+                            "content": [
+                                "The <a href=\"https://discord.gg/Jg34MuE\" target=\"_blank\">ALTTPR Spolier Tournament</a> is a yearly tournament that gives the player the spoiler log to study before the race!  This tournament is a test of execution and decision making abilities!"
+                            ]
+                        },
+                        {
+                            "header": "ALTTPR Glitched Tournaments",
+                            "content": [
+                                "<a href=\"https://discord.gg/adac5FG\" target=\"_blank\">ALTTPR Glitched Tournaments</a> focuses on tournaments that involve the use of \"major glitches\" to beat the game in fun and unususal ways!"
+                            ]
+                        },
+                        {
+                            "header": "ALTTPR Crossworld Keysanity Tournament",
+                            "content": [
+                                "The <a href=\"https://discord.gg/umCCQgr\" target=\"_blank\">ALTTPR Crossworld Keysanity Tournament</a> is a tournament for Crossworld entrance shuffle, plus keysanity (aka \"Crosskeys\").  Players put their note taking and memory to the test to be the top player of this mind-bending mode!"
+                            ]
+                        }
+                    ]
+                },
+                "foreign_language": {
+                    "header": "Language-specific Tournaments and Events",
+                    "languages": [
+                        {
+                            "header": "Francophone",
+                            "description": "Si vous cherchez des passionnées francophones de ALTTP Randomizer, n’hésitez pas à nous rejoindre sur notre <a href=\"https://discord.gg/tpdpHt6\" target=\"_blank\">Discord</a>. Il y a toujours des gens prêts à vous donner un coup de main. Il y a souvent des courses amicales qui s’organisent de manière impromptue, et il y règne une bonne ambiance.",
+                            "sections": [
+                                {
+                                    "header": "Tournoi Francophone",
+                                    "content": [
+                                        "Nous organisons habituellement un gros tournoi par année, ainsi qu’un micro tournoi à l’occasion. Surveillez le <a href=\"https://discord.gg/tpdpHt6\" target=\"_blank\">Discord</a> pour être au courant des développements"
+                                    ]
+                                },
+                                {
+                                    "header": "Hebdomadaire Francophone",
+                                    "content": [
+                                        "Chaque semaine, une course hebdomadaire entre francophones à lieu. L’horaire est voté par les joueurs sur le <a href=\"https://discord.gg/tpdpHt6\" target=\"_blank\">Discord de la communauté francophone</a> puis annoncé, au plaisir de tous!"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "header": "Deutsch",
+                            "description": "Auf dem <a href=\"https://discord.gg/5zuANcS\" target=\"_blank\">Discord der deutschsprachigen ALTTPR-Community</a> gibt es alles, von Anfängertipps über freundschaftliche Rennen bis hin zu Turnieren.",
+                            "sections": [
+                                {
+                                    "header": "Deutsche ALTTPR-Turniere",
+                                    "content": [
+                                        "Es wird ca. einmal im Jahr ein großes Turnier für neue und erfahrene Spieler organisiert. Dazwischen gibt es unregelmäßig kleinere und ausgefallenere Turniere. Ankündigungen und alle Informationen gibt es auf dem <a href=\"https://discord.gg/5zuANcS\" target=\"_blank\">Community-Discord</a>."
+                                    ]
+                                },
+                                {
+                                    "header": "Deutsches ALTTPR-Weekly",
+                                    "content": [
+                                        "Jede Woche findet ein größeres Rennen statt, in dem man sich gegen andere Spieler aus der Community messen kann. Neben Open werden auch andere Modi gespielt, die immer durchwechseln. Auf dem <a href=\"https://discord.gg/5zuANcS\" target=\"_blank\">Discord</a> gibt es alle Informationen zu den nächsten Rennen und zur Teilnahme."
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "header": "Español",
+                            "description": "Unete la comunidad Hispano-Hablante.",
+                            "sections": [
+                                {
+                                    "header": "Unete al Discord",
+                                    "content": [
+                                        "Unete al <a href=\"https://discord.gg/xyHxAFJ\" target=\"_blank\">Discord de Alttpr-ES</a> donde podras seguir todo lo referente a esta comunidad, o encontrar alguien para jugar una carrera en cualquier momento."
+                                    ]
+                                },
+                                {
+                                    "header": "Torneo Comunidad Hispano-Hablante",
+                                    "content": [
+                                        "Unete a nuestro torneo anual de la comunidad hispano-hablante, un buen momento para jugar, comentar o pasar un buen rato haciendo amigos."
+                                    ]
+                                },
+                                {
+                                    "header": "Carreras Semanales",
+                                    "content": [
+                                        "Participa en nuestras carreras semanales en colaboración con SpeedgamingEspañol. El sitio perfecto para iniciarte en retransmisión de carreras ya sea jugando, comentando, trackeando o en el chat entre amigos."
+                                    ]
+                                },
+                                {
+                                    "header": "Carreras Asíncronas",
+                                    "content": [
+                                        "En nuestro Discord también podras encontrar carreras Semanales Asíncronas que puedes hacer como y cuando quieras, pudiendo así compararte con miembros de la comunidad, la mejor forma de empezar a correr Randomizer con otra gente."
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
         "item": {
             "Random": "Random",
             "BottleWithRandom": "Bottle (Random)",
@@ -3294,6 +3576,148 @@ export default {
                 }
             }
         },
+        "races": {
+            "header": "Partidas Organizadas",
+            "cards": {
+                "races": {
+                    "header": "Carreras Semanales y Diarias",
+                    "sections": [
+                        {
+                            "header": "",
+                            "content": [
+                                "La Mayoría de las carreras seran en <a href=\"https://racetime.gg/alttpr\" target=\"_blank\">RaceTime.gg</a>. ¡Asegurate de pasarte por ahi para tener mas informacion de como pasar a la acción!",
+                                "Antes de empezar deberias familiarizarte con las <a href=\"http://alttp.mymm1.com/wiki/ALTTPR_Racing_Ruleset\">Reglas Generales de Carrera del Consejo de ALTTPR</a>, sin embargo, cada torneo o carreras puede tener reglas que varíen. however individual tournaments or races may have rules that vary. ¡Comprueba con cada competición primero para asegurarte que todo esta bien!"
+                            ]
+                        },
+                        {
+                            "header": "ALTTPR Ladder",
+                            "content": [
+                                "<a href=\"https://alttprladder.com/\" target=\"_blank\">ALTTPR Ladder</a> es un sistema de Ladder o Escalera por Elo 1v1, una liga de \"ALTTP Randomizer\", que funciona completamente por Discord. El sistema esta diseñado para que ocurran varias carreras 1v1 a lo largo del día, y los rankings se basan en pesos estandar de Elo 32K."
+                            ]
+                        },
+                        {
+                            "header": "SpeedGaming Carreras Diarias",
+                            "content": [
+                                "<a href=\"https://speedgaming.org/\" target=\"_blank\">SpeedGaming</a> opera carreras diarias, que funcionan en  <a href=\"https://racetime.gg/alttpr\" target=\"_blank\">RaceTime.gg</a>.  En <a href=\"http://speedgaming.org/alttprdaily/\" target=\"_blank\"> podrás encontrar cuando es la siguiente carrera diaria.</a>"
+                            ]
+                        },
+                        {
+                            "header": "Overworld Glitches Semanal",
+                            "content": [
+                                "La semanal de  Overworld Glitches Weekly o Glitches de Mundo Abierto es a las 10{30pm} EDT cada Miercoles en <a href=\"https://racetime.gg/alttpr\" target=\"_blank\">RaceTime.gg</a>."
+                            ]
+                        },
+                        {
+                            "header": "Carreras Improvisadas",
+                            "content": [
+                                "¿Las Carreras Planeadas no encajan en tu agenda? ¿Buscas alguien contra quien correr opciones menos comunes? ¡Unete a una carrera improvisada! Encontraras jugadores dispuesto a cualquier hora del dia. Unete al canal #race-planning en nuestro <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\">Discord</a>!"
+                            ]
+                        }
+                    ]
+                },
+                "watch": {
+                    "header": "Especta",
+                    "content": [
+                        "Con tantas cosas pasando a la vez, ¡siempre hay algo que ver! ¡Sigue estas redes y nunca te pierdas una carrera!"
+                    ]
+                },
+                "network": {
+                    "header": "Plataformas de Carreras",
+                    "content": [
+                        "Las carreras normalmente se hacen una plafatorma de Carreras.Estas paginas facilitan organizar carreras, aportando un timer oficial, y facilitando tanto a corredores como espectadores encontrar carreras.",
+                        "Asegurate de echarle un vistazo a <a href=\"http://racetime.gg\" target=\"_blank\">RaceTime.gg</a>!"
+                    ]
+                },
+                "tournament": {
+                    "header": "Torneos",
+                    "sections": [
+                        {
+                            "header": "",
+                            "content": [
+                                "¡Unete a nosotros en emocionante accion de torneo con comentario experto y jugadores de elite! Hay torneos operando todo el tiempo, ¡unete a <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\">Discord</a> para estar al dia!"
+                            ]
+                        },
+                        {
+                            "header": "ALTTP Randomizer Torneo Principal",
+                            "content": [
+                                "¡Se testigo de los mejores corredores compitiendo por el trofeo y ganar para si mismos el preciado sitio en la Baldosa Telepatica de Houlihan! ¿Crees que tienes lo que hace falta para competir con los mejoreS? Unete a <a href=\"https://discord.gg/B2kGXxTD6g\" target=\"_blank\">ALTTPR Tournaments Discord</a> y estate atento a carreras clasificatorias!"
+                            ]
+                        },
+                        {
+                            "header": "Copa Desafio",
+                            "content": [
+                                "La <a href=\"https://discord.gg/982W72p\" target=\"_blank\">Copa Desafio</a> es un torneo complementario para aquellos que no se clasifican para el torneo principal."
+                            ]
+                        },
+                        {
+                            "header": "Liga ALTTPR",
+                            "content": [
+                                "La <a href=\"https://alttprleague.com/\" target=\"_blank\">Liga ALTTPR</a> es un torneo de ALTTPR por equipos anual. Los jugadores formaran equipos de 3 y competiran otros equipos en diferentes modos de juego."
+                            ]
+                        },
+                        {
+                            "header": "Go Mode Podcast Torneo de Mentores",
+                            "content": [
+                                "<a href=\"https://gomodepodcast.com/\" target=\"_blank\">Go Mode Podcast</a> opera un torneo anual diseñado para jugadores noveles. Los jugadores tienen un mentor que ayudaran con algunas de sus carreras, con la intencion de preparar a los jugadores para torneos grandes o pequeños."
+                            ]
+                        },
+                        {
+                            "header": "ALTTPR Torneo Spoiler",
+                            "content": [
+                                "El <a href=\"https://discord.gg/Jg34MuE\" target=\"_blank\">ALTTPR Torneo Spoiler</a> es un torneo anual que da a los jugadores el Spoiler Log para estudiar antes de la carrera. Este torneo es una prueba de ejecucion y toma de decisiones."
+                            ]
+                        },
+                        {
+                            "header": "ALTTPR Torneo con Glitches",
+                            "content": [
+                                "<a href=\"https://discord.gg/adac5FG\" target=\"_blank\">ALTTPR Glitched Tournaments</a> se centra en torneos que implican el uso de \"glitches mayores\" para terminar el juego en formas tan divertidas como inusuales."
+                            ]
+                        },
+                        {
+                            "header": "ALTTPR Torneo Crossworld Keysanity",
+                            "content": [
+                                "El <a href=\"https://discord.gg/umCCQgr\" target=\"_blank\">Torneo ALTTPR Crossworld Keysanity</a> es un torneo de Entradas Aleatorias de un mundo a otro, con Keysanity (aka\"Crosskeys\"). ¡Los jugadores tendran su memoria y habilidad de tomar notas puestas a prueba para ser el mejor en este alocado modo!"
+                            ]
+                        }
+                    ]
+                },
+                "foreign_language": {
+                    "header": "Language-specific Tournaments and Events",
+                    "languages": [
+                        {
+                            "header": "Español",
+                            "description": "Unete la comunidad Hispano-Hablante.",
+                            "sections": [
+                                {
+                                    "header": "Unete al Discord",
+                                    "content": [
+                                        "Unete al <a href=\"https://discord.gg/xyHxAFJ\" target=\"_blank\">Discord de Alttpr-ES</a> donde podras seguir todo lo referente a esta comunidad, o encontrar alguien para jugar una carrera en cualquier momento."
+                                    ]
+                                },
+                                {
+                                    "header": "Torneo Comunidad Hispano-Hablante",
+                                    "content": [
+                                        "Unete a nuestro torneo anual de la comunidad hispano-hablante, un buen momento para jugar, comentar o pasar un buen rato haciendo amigos."
+                                    ]
+                                },
+                                {
+                                    "header": "Carreras Semanales",
+                                    "content": [
+                                        "Participa en nuestras carreras semanales en colaboración con SpeedgamingEspañol. El sitio perfecto para iniciarte en retransmisión de carreras ya sea jugando, comentando, trackeando o en el chat entre amigos."
+                                    ]
+                                },
+                                {
+                                    "header": "Carreras Asíncronas",
+                                    "content": [
+                                        "En nuestro Discord también podras encontrar carreras Semanales Asíncronas que puedes hacer como y cuando quieras, pudiendo así compararte con miembros de la comunidad, la mejor forma de empezar a correr Randomizer con otra gente."
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
         "item": {
             "Random": "Aleatorio",
             "BottleWithRandom": "Botella (aleatoria)",
@@ -4749,6 +5173,123 @@ export default {
                         "Vous êtes enfin prêt à partir ! La meilleure façon d’apprendre est de charger votre nouvelle ROM et de commencer à jouer. Si vous avez l’impression d’être coincé, consultez la liste des choses à savoir ou consultez notre <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">Discord</a>.",
                         "<ul><li>Vous pouvez utiliser le bouton Y pour alterner entre les flèches d’argent et les flèches normales, le Boomerang bleu et le rouge, le Champignon et la Poudre Magique, et entre la Pelle et la Flûte.</li><li>Dans le Monde des Ténèbres, vous pouvez utiliser le Grappin au dessus de la rivière au nord de la Pyramide. Cherchez les herbes qui dessinent une flèche !</li><li>Si vous vous trouvez dans la Bumper Cave avec la Cape Magique mais sans le Grappin, essayez de passer en haut à gauche du précipice... pas besoin du Grapprin ici!</li><li>Vous pouvez traverser des petits précipices en rebondissant contre des objets ou des murs grâce aux Bottes de Pégase.</li><li>Le forgeron et le coffre violet resteront avec vous même si vous Sauvegardez et Quittez.</li><li>Les clés peuvent ne pas être accessibles si elles ne sont pas requises pour finir le jeu. Par exemple, dans Skull Woods, la grande clé peut se trouver dans le grand coffre.</li></ul>",
                         "N’oubliez pas de consulter les <a href=\"/resources\">Ressources</a> complètes avec des tutoriels et d’autres astuces!"
+                    ]
+                }
+            }
+        },
+        "races": {
+            "header": "Courses organisées",
+            "cards": {
+                "races": {
+                    "header": "Courses quotidiennes et hebdomadaires",
+                    "sections": [
+                        {
+                            "header": "",
+                            "content": [
+                                "La plupart des courses se font à l’aide de la plate-forme <a href=\"https://racetime.gg/alttpr\" target=\"_blank\">RaceTime.gg</a>. Vous pouvez vous créer un compte, et vous connecter sur le site pour plus d’information sur le fonctionnement de la plate-forme!",
+                                "Avant de commencer à faire des courses, vous devriez vous familiariser avec les <a href=\"http://alttp.mymm1.com/wiki/ALTTPR_Racing_Ruleset\">règles de course d’ALTTPR</a>. Veuillez noter que certains tounois ou évènements peuvent utiliser des règles différentes. Validez avec les organisateurs pour savoir s’il y a des variations!"
+                            ]
+                        },
+                        {
+                            "header": "Ladder ALTTPR",
+                            "content": [
+                                "Le <a href=\"https://alttprladder.com/\" target=\"_blank\">Ladder ALTTPR</a> est une ligue d’ALTTPR qui fonctionne selon l’échelle Elo. Les courses se font entièrement sur un serveur Discord. Plusieurs courses se déroulent chaque jour, en rotation, et en utilisant différents paramètres du randomiseur. Le système de pointage fonctionne selon le standard Elo 32k."
+                            ]
+                        },
+                        {
+                            "header": "Courses quotidiennes de SpeedGaming",
+                            "content": [
+                                "<a href=\"https://speedgaming.org/\" target=\"_blank\">SpeedGaming</a> organise des courses quotidiennes qui se font sur la plate-forme <a href=\"https://racetime.gg/alttpr\" target=\"_blank\">RaceTime.gg</a>.  N’hésitez pas à aller voir la <a href=\"http://speedgaming.org/alttprdaily/\" target=\"_blank\">planification des courses.</a>"
+                            ]
+                        },
+                        {
+                            "header": "Course hebdomadaire des glitches du monde extérieur",
+                            "content": [
+                                "La course hebdomadaire des glitches du monde extérieur a lieu tous les mercredis à 22h30 sur <a href=\"https://racetime.gg/alttpr\" target=\"_blank\">RaceTime.gg</a>."
+                            ]
+                        },
+                        {
+                            "header": "Votre propre course",
+                            "content": [
+                                "Les courses organisées ne fonctionnent pas avec votre horaire? Vous voulez faire une course avec des paramètres plus exotiques? Organisez votre propre course! Vous trouverez des joueurs prêts à jouer à toute heure du jour ou de la nuit. Visitez #race-planning dans le <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\">Discord principal d’ALTTPR.</a>!"
+                            ]
+                        }
+                    ]
+                },
+                "tournament": {
+                    "header": "Tournois",
+                    "sections": [
+                        {
+                            "header": "",
+                            "content": [
+                                "Vous voulez voir des courses de tournoi commentées, et courues par des joueurs de haut niveau ? Des tournois ont souvent lieu au cours de l’année. Joignez notre <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\">Discord</a> pour être au courant du calendrier!"
+                            ]
+                        },
+                        {
+                            "header": "Tournoi principal d’ALTTP Randomizer",
+                            "content": [
+                                "Voyez les meilleurs joueurs compétitionner pour le trophée et la chance d’avoir leur nom sur la tuile télépathique de la salle Houlihan! Vous croyez avoir ce qu’il faut pour vous mesurer aux meilleurs ? Joignez le <a href=\"https://discord.gg/B2kGXxTD6g\" target=\"_blank\">Discord du tournoi ALTTPR</a> et surveillez les courses de qualification!"
+                            ]
+                        },
+                        {
+                            "header": "Challenge Cup",
+                            "content": [
+                                "La <a href=\"https://discord.gg/982W72p\" target=\"_blank\">Challenge Cup</a> est un tournoi destiné aux joueurs qui n’ont pas pu se qualifier dans le tournoi principal."
+                            ]
+                        },
+                        {
+                            "header": "Ligue ALTTPR",
+                            "content": [
+                                "La <a href=\"https://alttprleague.com/\" target=\"_blank\">Ligue ALTTPR</a> est un tournoi annuel en équipe. Les joueurs forment des équipes de trois personnes, et s’affrontent en solo ou en équipe dans des courses avec des modes variés."
+                            ]
+                        },
+                        {
+                            "header": "Tournoi mentor Go Mode Podcast",
+                            "content": [
+                                "<a href=\"https://gomodepodcast.com/\" target=\"_blank\">Go Mode Podcast</a> organise un tournoi annuel destiné aux nouveaux joueurs. Les apprentis ont un mentor pour les aider dans certaines courses. Le but est de préparer les joueurs pour compétitionner dans d’autres tournois, petits ou grands."
+                            ]
+                        },
+                        {
+                            "header": "Tournoi ALTTPR Spoiler",
+                            "content": [
+                                "Le <a href=\"https://discord.gg/Jg34MuE\" target=\"_blank\">tournoi ALTTPR Spoiler</a> est un tournoi annuel dont le but est d’étudier le spoiler de la course pendant 15 minutes, planifier la course, et ensuite faire la course. Ce tournoi teste l’habileté des joueurs à joueur rapidement, efficacement, et souvent avec peu de protection."
+                            ]
+                        },
+                        {
+                            "header": "Tournois ALTTPR avec des Glitches",
+                            "content": [
+                                "Les <a href=\"https://discord.gg/adac5FG\" target=\"_blank\">tournois de ALTTPR Glitchés</a> impliquent l’utilisation de glitchs majeurs pour briser et battre le jeu, souvent de manière inattendue."
+                            ]
+                        },
+                        {
+                            "header": "Tournoi croise-clés ALTTPR",
+                            "content": [
+                                "Le <a href=\"https://discord.gg/umCCQgr\" target=\"_blank\">tournoi croise-clés d’ALTTPR</a>, communément appelé \"Crosskeys\" est un tournoi qui teste la capacité des joueurs à naviguer le monde d’Hyrule avec les entrées et les clés mélangées. Les joueurs devront faire appel à leur mémoire et leurs notes pour trouver la solution de ce mode renversant!"
+                            ]
+                        }
+                    ]
+                },
+                "foreign_language": {
+                    "header": "Language-specific Tournaments and Events",
+                    "languages": [
+                        {
+                            "header": "Francophone",
+                            "description": "Si vous cherchez des passionnées francophones de ALTTP Randomizer, n’hésitez pas à nous rejoindre sur notre <a href=\"https://discord.gg/tpdpHt6\" target=\"_blank\">Discord</a>. Il y a toujours des gens prêts à vous donner un coup de main. Il y a souvent des courses amicales qui s’organisent de manière impromptue, et il y règne une bonne ambiance.",
+                            "sections": [
+                                {
+                                    "header": "Tournoi Francophone",
+                                    "content": [
+                                        "Nous organisons habituellement un gros tournoi par année, ainsi qu’un micro tournoi à l’occasion. Surveillez le <a href=\"https://discord.gg/tpdpHt6\" target=\"_blank\">Discord</a> pour être au courant des développements"
+                                    ]
+                                },
+                                {
+                                    "header": "Hebdomadaire Francophone",
+                                    "content": [
+                                        "Chaque semaine, une course hebdomadaire entre francophones à lieu. L’horaire est voté par les joueurs sur le <a href=\"https://discord.gg/tpdpHt6\" target=\"_blank\">Discord de la communauté francophone</a> puis annoncé, au plaisir de tous!"
+                                    ]
+                                }
+                            ]
+                        }
                     ]
                 }
             }

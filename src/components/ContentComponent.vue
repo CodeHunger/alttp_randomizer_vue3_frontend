@@ -90,13 +90,7 @@ const props = defineProps({
 })
 const { anchor, content, level } = toRefs(props);
 
-// if (level === undefined) {
-//   level = ref(3)
-// }
-
 const currentLevel = min(level?.value || 3, 5);
-
-console.log('$$$', content.value, currentLevel);
 
 
 

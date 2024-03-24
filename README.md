@@ -14,7 +14,7 @@ But instead will probably be copied in the existing repository.
 - [ ] Daily Challenge page
 - [x] Resources page
 - [x] Game options page
-- [ ] Organized play page
+- [x] Organized play page
 - [ ] Updates page
 - [ ] Sprite options page
 - [ ] Contribute page
