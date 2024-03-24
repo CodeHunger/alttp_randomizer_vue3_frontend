@@ -7,26 +7,6 @@ h4 {
 <script setup lang="ts">
 import CardComponent from "@/components/CardComponent.vue";
 import ContentComponent from "@/components/ContentComponent.vue";
-import OptionsItemPoolView from "@/views/Options/OptionsItemPool.vue";
-import OptionsItemPoolCard from "@/views/Options/OptionsItemPoolCard.vue";
-
-const cards = [
-  {
-    anchor: 'races',
-    header: 'races.cards.races.header',
-    sections: [
-
-    ],
-  },
-  {
-    anchor: 'tournament',
-    header: 'races.cards.tournament.header',
-    sections: [
-
-    ],
-  },
-]
-
 
 </script>
 
@@ -73,7 +53,6 @@ const cards = [
         </template>
       </card-component>
     </template>
-
   </div>
 </template>
 
