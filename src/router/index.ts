@@ -6,6 +6,7 @@ import ResourcesView from "@/views/ResourcesView.vue";
 import PageView from "@/views/PageView.vue";
 import OptionsView from "@/views/Options/OptionsView.vue";
 import RacesView from "@/views/RacesView.vue";
+import UpdatesView from "@/views/UpdatesView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -38,6 +39,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/races',
     name: 'races',
     component: RacesView,
+  },
+  {
+    path: '/updates',
+    name: 'updates',
+    component: UpdatesView,
   },
   {
     path: '/daily',

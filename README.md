@@ -15,7 +15,7 @@ But instead will probably be copied in the existing repository.
 - [x] Resources page
 - [x] Game options page
 - [x] Organized play page
-- [ ] Updates page
+- [x] Updates page
 - [ ] Sprite options page
 - [ ] Contribute page
 

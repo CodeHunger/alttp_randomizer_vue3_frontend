@@ -70,8 +70,8 @@ const flagIcon = {
             <div class="dropdown-menu">
               <router-link class="dropdown-item" to="/resources">{{ $t('navigation.resources') }}</router-link>
               <router-link class="dropdown-item" to="/options">{{ $t('navigation.options') }}</router-link>
-              <a class="dropdown-item" href="/races">{{ $t('navigation.races') }}</a>
-              <a class="dropdown-item" href="/updates">{{ $t('navigation.updates') }}</a>
+              <router-link class="dropdown-item" to="/races">{{ $t('navigation.races') }}</router-link>
+              <router-link class="dropdown-item" to="/updates">{{ $t('navigation.updates') }}</router-link>
               <a class="dropdown-item" href="/sprite_preview">{{ $t('navigation.sprite_preview') }}</a>
               <a class="dropdown-item" href="/contribute">{{ $t('navigation.contribute') }}</a>
               <a class="dropdown-item" href="https://discord.gg/alttprandomizer" target="_blank" rel="noopener noreferrer">{{ $t('navigation.discord') }}</a>
