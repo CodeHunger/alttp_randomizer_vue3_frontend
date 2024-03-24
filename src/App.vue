@@ -1,30 +1,28 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <nav-component />
+  <div class="container">
+    <router-view/>
+  </div>
+
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+<style scoped>
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 70px;
 }
 </style>
+
+<script setup lang="ts">
+import NavComponent from "@/components/NavComponent.vue";
+import watchLanguage from "@/composables/watchLanguage";
+import setupLanguage from "@/composables/setupLanguage";
+
+setupLanguage();
+watchLanguage();
+
+</script>

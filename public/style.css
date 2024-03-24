@@ -1,0 +1,46 @@
+@import url(https://fonts.googleapis.com/css?family=Cabin|Schoolbell:300,400,600);
+
+body {
+    background: #eee !important;
+    --bs-info-rgb: 23, 162, 184;
+}
+
+#app {
+    font-family: Cabin, sans-serif;
+    font-size: .9rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #212529;
+    text-align: left;
+
+    .toggle-off {
+        box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    }
+    .toggle.off {
+        border-color: rgba(0, 0, 0, 0.25);
+    }
+
+    .toggle-handle.btn {
+        background-color: white;
+        border: thin rgba(0, 0, 0, 0.25) solid;
+    }
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.center {
+    text-align: center;
+}
+
+strong {
+    color: #bf5329;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1140px !important;
+    }
+}
+

@@ -1,11 +1,43 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import StartView from "../views/StartView.vue";
+import WatchView from "@/views/WatchView.vue";
+import ResourcesView from "@/views/ResourcesView.vue";
+import PageView from "@/views/PageView.vue";
+import OptionsView from "@/views/OptionsView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/start',
+    name: 'start',
+    component: StartView
+  },
+  {
+    path: '/watch',
+    name: 'watch',
+    component: WatchView
+  },
+  {
+    path: '/resources',
+    name: 'resources',
+    component: PageView,
+    props: { contentKey: 'resources'}
+  },
+  {
+    path: '/options',
+    name: 'options',
+    component: OptionsView,
+  },
+  {
+    path: '/daily',
+    name: 'daily',
+    component: PageView,
+    props: { contentKey: 'daily'}
   },
   {
     path: '/about',
