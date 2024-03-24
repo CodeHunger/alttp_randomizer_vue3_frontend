@@ -1,7 +1,8 @@
 # alttpr-frontend-vue3
 
 This project is a work in progress. This repository will probably never be used for the website.
-But instead will probably be copied in the existing repository.
+But instead will (hopefully) be copied in the existing repository.
+For the complete project and the original frontend see: https://github.com/sporchia/alttp_vt_randomizer
 
 ## Project status
 
