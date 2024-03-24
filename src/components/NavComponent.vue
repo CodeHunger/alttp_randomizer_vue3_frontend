@@ -73,7 +73,7 @@ const flagIcon = {
               <router-link class="dropdown-item" to="/races">{{ $t('navigation.races') }}</router-link>
               <router-link class="dropdown-item" to="/updates">{{ $t('navigation.updates') }}</router-link>
               <a class="dropdown-item" href="/sprite_preview">{{ $t('navigation.sprite_preview') }}</a>
-              <a class="dropdown-item" href="/contribute">{{ $t('navigation.contribute') }}</a>
+              <router-link class="dropdown-item" to="/contribute">{{ $t('navigation.contribute') }}</router-link>
               <a class="dropdown-item" href="https://discord.gg/alttprandomizer" target="_blank" rel="noopener noreferrer">{{ $t('navigation.discord') }}</a>
               <a class="dropdown-item" href="https://github.com/sporchia/alttp_vt_randomizer/issues/new" target="_blank" rel="noopener noreferrer">{{ $t('navigation.report_issue') }}</a>
             </div>

@@ -12,12 +12,13 @@ But instead will probably be copied in the existing repository.
 - [ ] Randomizer page
 - [ ] Customizer page
 - [ ] Daily Challenge page
+- [ ] Hash page
 - [x] Resources page
 - [x] Game options page
 - [x] Organized play page
 - [x] Updates page
 - [ ] Sprite options page
-- [ ] Contribute page
+- [x] Contribute page
 
 
 ### Features

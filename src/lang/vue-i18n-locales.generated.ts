@@ -85,6 +85,39 @@ export default {
                 }
             }
         },
+        "contribute": {
+            "header": "Mitwirken",
+            "subheader": "Es gibt viele Wege mitzuwirken, trete den Entwicklungskanälen auf <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">Discord</a> bei!",
+            "cards": {
+                "sprite": {
+                    "header": "Sprite Entwicklung",
+                    "content": [
+                        "Du willst deinen eigenen Sprite anstatt Link sehen? Schaue dir <a href=\"https://github.com/spannerisms/ALttPNG/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">spannerisms’s Dokumentation!</a> an!",
+                        "Für mehr Informationen über die Erstellung eines Sprites und wie man einen selbsterstellten Sprite in ALttP{R} hinzufügt, checke #sprite-dev auf <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">Discord</a> aus!"
+                    ]
+                },
+                "live": {
+                    "header": "Live-Rennen Produktion",
+                    "content": [
+                        "Interessiert unserem Team von Restreamer, Kommentatoren und Tracker beizutreten?",
+                        "Fülle dieses Formular aus und halte Ausschau auf <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">Discord</a>!",
+                        "<div class=\"center\"><iframe src=\"https://docs.google.com/forms/d/e/1FAIpQLScxQmuQBbUDEV-vRbAqCVrDqGw1ceyhS6s9XlCgZBrsdTGU_g/viewform?embedded=true\" width=\"760\" height=\"1300\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\">Loading...</iframe></div>"
+                    ]
+                },
+                "other": {
+                    "header": "Andere Wege mitzuwirken",
+                    "content": [
+                        "Du hast eine Idee für ein Feature? Du hast beim spielen einen Bug gefunden? Du suchst Arbeit für deine technischen Fähigkeiten? Trete dem #suggestions Kanal auf <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">Discord</a> bei und stelle dich vor!"
+                    ]
+                },
+                "discord": {
+                    "header": "Trete der Discord Community bei!",
+                    "content": [
+                        "Haben wir schon erwähnt, dass du uns beitreten sollst auf <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">Discord</a>? Der beste Weg in alles involviert zu sein ist, beizutreten und sich vorzustellen!"
+                    ]
+                }
+            }
+        },
         "races": {
             "header": "Organisiertes Spielen",
             "cards": {
@@ -1662,6 +1695,39 @@ export default {
                         "You’re finally ready to go! The best way to learn is to load up your new ROM and start playing. If you feel like you’re stuck, check out this list of common pitfalls, or ask on <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">Discord</a>.",
                         "<ul><li>You can use the Y button to swap between Silver Arrows and Normal Arrows, the Red and Blue Boomerangs, the Mushroom and the Magic Powder, and the Shovel and the Flute.</li><li>You can save and quit with either the Frog or Purple Chest following you to bring it back to the light world without the Mirror.</li><li>In the dark world, you can hookshot over the river north of the pyramid. Look for the arrow made out of grass!</li><li>You can use the boots to dash into walls, blocks, and pots, knocking you backwards, in order to cross a gap.</li><li>If you find yourself at bumper cave with the Cape but without the Hookshot, try walking over the top left of the gap—no Hookshot needed!</li><li>Keys might not be accessible if they are not required to finish the game. For instance, the Skull Woods big key might be in the big chest.</li></ul>",
                         "Don’t forget to check out the comprehensive <a href=\"/resources\">Resources</a> with tutorials and more tips!"
+                    ]
+                }
+            }
+        },
+        "contribute": {
+            "header": "Contribute",
+            "subheader": "There are many ways to help out, join the Development channels on <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">Discord</a>!",
+            "cards": {
+                "sprite": {
+                    "header": "Sprite Development",
+                    "content": [
+                        "Want to see your own custom sprite take Link’s place? Checkout <a href=\"https://github.com/spannerisms/ALttPNG/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">spannerisms’s documentation!</a>",
+                        "For more information on sprite creation and getting a custom sprite into ALttP{R}, check in with #sprite-dev on <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">Discord</a>!"
+                    ]
+                },
+                "live": {
+                    "header": "Live Race Production",
+                    "content": [
+                        "Interested in joining our team of restreamers, commentators, and trackers?",
+                        "Fill out this form and keep an eye on <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">Discord</a>!",
+                        "<div class=\"center\"><iframe src=\"https://docs.google.com/forms/d/e/1FAIpQLScxQmuQBbUDEV-vRbAqCVrDqGw1ceyhS6s9XlCgZBrsdTGU_g/viewform?embedded=true\" width=\"760\" height=\"1300\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\">Loading...</iframe></div>"
+                    ]
+                },
+                "other": {
+                    "header": "Other Contributions",
+                    "content": [
+                        "Have an idea for a feature? Find a bug while playing? Looking to put your technical skills to work? Join the #suggestions channel on <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">Discord</a> and introduce yourself!"
+                    ]
+                },
+                "discord": {
+                    "header": "Join the Discord Community!",
+                    "content": [
+                        "Did we mention that you should join us on <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">Discord</a>? The best way to get involved is to join and introduce yourself!"
                     ]
                 }
             }
@@ -3576,6 +3642,39 @@ export default {
                 }
             }
         },
+        "contribute": {
+            "header": "Contribuir",
+            "subheader": "Hay muchas formas de ayudar, ¡únete a los canales de desarrollo en <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">Discord</a>!",
+            "cards": {
+                "sprite": {
+                    "header": "Creación de sprites",
+                    "content": [
+                        "¿Quiéres ver tu propio sprite customizado en lugar de Link? ¡Lee <a href=\"https://github.com/spannerisms/ALttPNG/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">documentación de spannerisms!</a> (en inglés)",
+                        "Para más información sobre creación de sprites y sobre meter un sprite en ALttP{R}, ¡entra en #sprite-dev en <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">Discord</a>!"
+                    ]
+                },
+                "live": {
+                    "header": "Producción de carreras en directo",
+                    "content": [
+                        "¿Interesado en unirte al equipo de <i>restreamers</i>, comentaristas o <i>trackers</i>?",
+                        "¡Rellena este formulario y mantente atento a <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">Discord</a>!",
+                        "<div class=\"center\"><iframe src=\"https://docs.google.com/forms/d/e/1FAIpQLScxQmuQBbUDEV-vRbAqCVrDqGw1ceyhS6s9XlCgZBrsdTGU_g/viewform?embedded=true\" width=\"760\" height=\"1300\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\">Loading...</iframe></div>"
+                    ]
+                },
+                "other": {
+                    "header": "Otras contribuciones",
+                    "content": [
+                        "¿Tienes una idea para una nueva prestación? ¿Has encontrado un <i>bug</i> mientras jugabas? ¿Quieres poner a trabajar tus habilidades técnicas? ¡Entra al canal #suggestions en <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">Discord</a> y preséntate!"
+                    ]
+                },
+                "discord": {
+                    "header": "¡Únete a la comunidad de Discord!",
+                    "content": [
+                        "¿Hemos mencionado ya que deberías unirte a nuestro <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">Discord</a>? ¡La mejor forma de involucrarte es entrar y presentarte!"
+                    ]
+                }
+            }
+        },
         "races": {
             "header": "Partidas Organizadas",
             "cards": {
@@ -5173,6 +5272,39 @@ export default {
                         "Vous êtes enfin prêt à partir ! La meilleure façon d’apprendre est de charger votre nouvelle ROM et de commencer à jouer. Si vous avez l’impression d’être coincé, consultez la liste des choses à savoir ou consultez notre <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">Discord</a>.",
                         "<ul><li>Vous pouvez utiliser le bouton Y pour alterner entre les flèches d’argent et les flèches normales, le Boomerang bleu et le rouge, le Champignon et la Poudre Magique, et entre la Pelle et la Flûte.</li><li>Dans le Monde des Ténèbres, vous pouvez utiliser le Grappin au dessus de la rivière au nord de la Pyramide. Cherchez les herbes qui dessinent une flèche !</li><li>Si vous vous trouvez dans la Bumper Cave avec la Cape Magique mais sans le Grappin, essayez de passer en haut à gauche du précipice... pas besoin du Grapprin ici!</li><li>Vous pouvez traverser des petits précipices en rebondissant contre des objets ou des murs grâce aux Bottes de Pégase.</li><li>Le forgeron et le coffre violet resteront avec vous même si vous Sauvegardez et Quittez.</li><li>Les clés peuvent ne pas être accessibles si elles ne sont pas requises pour finir le jeu. Par exemple, dans Skull Woods, la grande clé peut se trouver dans le grand coffre.</li></ul>",
                         "N’oubliez pas de consulter les <a href=\"/resources\">Ressources</a> complètes avec des tutoriels et d’autres astuces!"
+                    ]
+                }
+            }
+        },
+        "contribute": {
+            "header": "Contribuer",
+            "subheader": "Vous pouvez nous aider de bien des manières, n’hésitez pas à rejoindre notre équipe de développement sur notre <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">serveur Discord</a> pour participer !",
+            "cards": {
+                "sprite": {
+                    "header": "Infographie",
+                    "content": [
+                        "Vous voulez ajouter votre propre héros en remplacement de Link ? Commencez par consulter la <a href=\"https://github.com/spannerisms/ALttPNG/wiki\" target=\"_blank\" rel=\"noopener noreferrer\">documentation de spannerisms!</a> à ce propos.",
+                        "Pour plus d’informations, rejoignez le serveur <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">Discord</a> et faites un tour sur le canal #sprite-dev !"
+                    ]
+                },
+                "live": {
+                    "header": "Direct",
+                    "content": [
+                        "Vous souhaitez participer aux streams en faisant du commentaire, en aidant à la diffusion ou à la comptabilisation des objets des participants ?",
+                        "Remplissez ce formulaire, et venez faire un tour sur le <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">serveur Discord</a>!",
+                        "<div class=\"center\"><iframe src=\"https://docs.google.com/forms/d/e/1FAIpQLScxQmuQBbUDEV-vRbAqCVrDqGw1ceyhS6s9XlCgZBrsdTGU_g/viewform?embedded=true\" width=\"760\" height=\"1300\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\">Chargement...</iframe></div>"
+                    ]
+                },
+                "other": {
+                    "header": "Autre",
+                    "content": [
+                        "Vous avez une idée pour améliorer le randomiseur ? Vous souhaitez mettre à profit vos compétences techniques ? Ou peut-être avez vous rencontré un bug ? Le canal #suggestions du <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">serveur Discord</a> est fait pour vous !"
+                    ]
+                },
+                "discord": {
+                    "header": "Rejoignez la communauté Discord!",
+                    "content": [
+                        "On vous a dit qu’on avait un <a href=\"https://discord.gg/alttprandomizer\" target=\"_blank\" rel=\"noopener noreferrer\">serveur Discord</a>? N’hésitez pas, nous serons ravis de vous accueillir."
                     ]
                 }
             }

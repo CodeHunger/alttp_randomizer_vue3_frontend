@@ -7,6 +7,7 @@ import PageView from "@/views/PageView.vue";
 import OptionsView from "@/views/Options/OptionsView.vue";
 import RacesView from "@/views/RacesView.vue";
 import UpdatesView from "@/views/UpdatesView.vue";
+import ContributeView from "@/views/ContributeView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -44,6 +45,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/updates',
     name: 'updates',
     component: UpdatesView,
+  },
+  {
+    path: '/contribute',
+    name: 'contribute',
+    component: ContributeView,
   },
   {
     path: '/daily',
