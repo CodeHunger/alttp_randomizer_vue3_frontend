@@ -1,0 +1,14 @@
+export type Goal = "ganon" | "fast_ganon" | "dungeons" | "pedestal" | "triforce-hunt" | "ganonhunt" | "completionist";
+export type Mode = "standard" | "open" | "inverted";
+export type OnOff = "on" | "off";
+export type Logic = "MajorGlitches" | "HybridMajorGlitches" | "NoLogic" | "OverworldGlitches" | "NoGlitches"
+export type Weapons = "randomized" | "assured" | "vanilla" | "swordless"
+export type ItemPool = "normal" | "hard" | "expert" | "crowd_control"
+export type Accessibility = "items" | "locations" | "none"
+export type DungeonItems = "standard" | "mc" | "mcs" | "full"
+export type ItemPlacement = "basic" | "advanced"
+export type ItemFunctionality = "normal" | "hard" | "expert"
+export type BossShuffle = "none" | "simple" | "full" | "random"
+export type EnemyDamage = "default" | "shuffled" | "random"
+export type EnemyHealth = "easy" | "default" | "hard" | "expert"
+export type EnemyShuffle = "none" | "shuffled" | "random"

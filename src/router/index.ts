@@ -8,6 +8,7 @@ import OptionsView from "@/views/Options/OptionsView.vue";
 import RacesView from "@/views/RacesView.vue";
 import UpdatesView from "@/views/UpdatesView.vue";
 import ContributeView from "@/views/ContributeView.vue";
+import GameView from "@/views/GameView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -56,6 +57,13 @@ const routes: Array<RouteRecordRaw> = [
     name: 'daily',
     component: PageView,
     props: { contentKey: 'daily'}
+  },
+
+  {
+    path: '/h/:hash',
+    name: 'daily',
+    component: GameView,
+    props: true
   },
   {
     path: '/about',
