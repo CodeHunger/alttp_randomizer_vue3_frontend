@@ -5,7 +5,7 @@ import {useI18n} from "vue-i18n";
 const { locale } = useI18n();
 
 const flagIcon = {
-  "en": "fi-us",
+  "en-US": "fi-us",
   "fr": "fi-fr",
   "de": "fi-de",
   "es": "fi-es",
@@ -59,7 +59,7 @@ const flagIcon = {
               <span class="caret"></span>
             </a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" @click.prevent="$i18n.locale = 'en'" href="#"><span class="fi fi-us"></span> English</a>
+              <a class="dropdown-item" @click.prevent="$i18n.locale = 'en-US'" href="#"><span class="fi fi-us"></span> English</a>
               <a class="dropdown-item" @click.prevent="$i18n.locale = 'fr'" href="#"><span class="fi fi-fr"></span> Français</a>
               <a class="dropdown-item" @click.prevent="$i18n.locale = 'de'" href="#"><span class="fi fi-de"></span> Deutsch</a>
               <a class="dropdown-item" @click.prevent="$i18n.locale = 'es'" href="#"><span class="fi fi-es"></span> Español</a>

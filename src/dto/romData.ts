@@ -25,10 +25,9 @@ export class RomData {
         public readonly spoiler: RomDataRaw['spoiler'],
         public readonly music: unknown,
     ) {
-        console.log('$$$', this.spoiler)
+
     }
     public static fromRomDataRaw(romDataRaw: RomDataRaw): RomData {
-        console.log('***', romDataRaw.spoiler);
         return new RomData(
             romDataRaw.generated,
             romDataRaw.hash,

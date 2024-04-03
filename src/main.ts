@@ -12,15 +12,28 @@ import FloatingVue from 'floating-vue'
 import 'floating-vue/dist/style.css'
 import axios from "axios";
 import "vue-multiselect/dist/vue-multiselect.css"
+import "@vueform/toggle/themes/default.css"
+import timeago, {TimeagoOptions} from 'vue-timeago3'
+import {enUS, fr, de, es} from 'date-fns/locale' // import custom locale
 
 const app = createApp(App);
 
 const i18n = createI18n({
     legacy: false,
-    locale: 'en',
-    fallbackLocale: 'en',
-    messages
+    locale: enUS.code,
+    fallbackLocale: enUS.code,
+    messages,
+    availableLocales: [fr.code, de.code, es.code, enUS.code]
 })
+
+const timeagoOptions: TimeagoOptions = {
+    converterOptions: {
+        includeSeconds: false,
+    },
+    locale: enUS,
+}
+
+
 
 axios.defaults.baseURL = process.env.VUE_APP_API_BASE_URL;
 
@@ -28,7 +41,6 @@ app.use(store)
 app.use(router)
 app.use(FloatingVue)
 app.use(i18n)
+app.use(timeago, timeagoOptions)
 
-
-app.provide<I18n>('i18n', i18n);
 app.mount('#app')

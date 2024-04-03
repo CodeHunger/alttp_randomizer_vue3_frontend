@@ -20,7 +20,7 @@
 </style>
 
 <script setup>
-import { toRefs, defineProps } from 'vue';
+import { toRefs } from 'vue';
 
 const props = defineProps({
   i18nKey: { type: String, required: true},

@@ -25,7 +25,7 @@ h4 {
 </style>
 <script setup lang="ts">
 import CardComponent from "@/components/CardComponent.vue";
-import { toRefs, defineProps } from 'vue';
+import { toRefs } from 'vue';
 
 const props = defineProps({contentKey: String})
 const { contentKey } = toRefs(props);

@@ -69,7 +69,7 @@ ul {
 </style>
 
 <script setup lang="ts">
-import {toRefs, defineProps, PropType, ref} from 'vue';
+import {toRefs, PropType, ref} from 'vue';
 import {max, min} from "@popperjs/core/lib/utils/math";
 
 type Content = {

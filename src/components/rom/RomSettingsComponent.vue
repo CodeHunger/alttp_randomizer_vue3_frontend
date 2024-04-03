@@ -2,9 +2,8 @@
 import {PropType, reactive, ref, toRef} from "vue";
 import {RomData} from "@/dto/romData";
 import {useI18n} from "vue-i18n";
-import {reference} from "@popperjs/core";
-import VueMultiselect from "vue-multiselect/src/Multiselect.vue";
-import SelectComponent from "@/components/SelectComponent.vue";
+import SelectComponent from "@/components/input/SelectComponent.vue";
+import LTTPRToggle from "@/components/input/LTTPRToggle.vue";
 
 const props = defineProps({
   rom: {
@@ -14,7 +13,6 @@ const props = defineProps({
 })
 
 const rom = toRef<RomData>(props.rom)
-const reduceFlashing = ref(false);
 
 const { t } = useI18n();
 
@@ -91,7 +89,11 @@ const settingsOptionsDefaults = {
       name: t("rom.settings.heart_colors.red")
   },
   quickswap: false,
-  music: true
+  music: true,
+  msu1Resume: true,
+  reduceFlashing: false,
+  paletteShuffle: false,
+  shuffleSfx: false,
 }
 
 const settings = reactive({
@@ -100,7 +102,20 @@ const settings = reactive({
   heartColors: settingsOptionsDefaults.heartColors,
   quickswap: settingsOptionsDefaults.quickswap,
   music: settingsOptionsDefaults.music,
+  msu1Resume: settingsOptionsDefaults.msu1Resume,
+  reduceFlashing: settingsOptionsDefaults.reduceFlashing,
+  paletteShuffle: settingsOptionsDefaults.paletteShuffle,
+  shuffleSfx: settingsOptionsDefaults.shuffleSfx,
 })
+
+
+
+const musicOn = ref(true);
+const msu1Resume = ref(true);
+const quickswap = ref(true);
+const reduceFlashing = ref(false);
+const paletteShuffle = ref(false);
+const shuffleSfx = ref(false);
 
 const customLabel = (selection: {value: string, name: string}) => {
   return selection.name;
@@ -130,6 +145,12 @@ const customLabel = (selection: {value: string, name: string}) => {
 <!--          :title="$t('rom.settings.play_as')"-->
 <!--          @load-custom-sprite="loadCustomSprite"-->
 <!--        ></vt-sprite-select>-->
+        <vt-sprite-select
+          id="sprite-gfx"
+          :rom="rom"
+          storage-key="rom.sprite-gfx"
+          :title="$t('rom.settings.play_as')"
+        ></vt-sprite-select>
       </div>
     </div>
 <!--    <div v-if="showLoadCustomSprite" class="row mb-3">-->
@@ -162,46 +183,46 @@ const customLabel = (selection: {value: string, name: string}) => {
         >{{ $t('rom.settings.heart_color') }}</select-component>
       </div>
     </div>
+
     <div v-if="!rom.music" class="row mb-3">
       <div class="col">
-<!--        <Toggle :value="musicOn" @input="setMusicOn">{{ $t('rom.settings.music') }}</Toggle>-->
+        <LTTPRToggle v-model="musicOn">{{ $t('rom.settings.music') }}</LTTPRToggle>
       </div>
       <div v-if="rom.build >= '2021-05-04'" class="col">
-<!--        <Toggle :value="msu1Resume" @input="setMSU1Resume">{{ $t('rom.settings.msu1resume') }}</Toggle>-->
+        <LTTPRToggle v-model="msu1Resume">{{ $t('rom.settings.msu1resume') }}</LTTPRToggle>
       </div>
     </div>
     <div class="row mb-3">
       <div v-if="!rom.tournament || rom.allowQuickSwap" class="col">
-<!--        <Toggle :value="quickswap" @input="setQuickswap">{{ $t('rom.settings.quickswap') }}</Toggle>-->
+        <LTTPRToggle v-model="quickswap">{{ $t('rom.settings.quickswap') }}</LTTPRToggle>
       </div>
       <div v-if="rom.build >= '2021-05-04'" class="col">
-<!--        <Toggle-->
-<!--          :value="reduceFlashing"-->
-<!--          @input="setReduceFlashing"-->
-<!--        >{{ $t('rom.settings.reduce_flashing') }}-->
-<!--          <sup-->
-<!--            v-if="reduceFlashing"-->
-<!--          >*</sup></Toggle>-->
+        <LTTPRToggle
+          v-model="reduceFlashing"
+        >{{ $t('rom.settings.reduce_flashing') }}
+          <sup
+            v-if="reduceFlashing"
+          >*</sup></LTTPRToggle>
       </div>
     </div>
     <div class="row mb-3">
       <div v-if="!rom.special" class="col">
-<!--        <Toggle-->
-<!--          :value="paletteShuffle"-->
-<!--          @input="setPaletteShuffle"-->
-<!--        >{{ $t('rom.settings.palette_shuffle') }}</Toggle>-->
+        <LTTPRToggle
+          v-model="paletteShuffle"
+        >{{ $t('rom.settings.palette_shuffle') }}</LTTPRToggle>
       </div>
       <div v-if="!rom.music || rom.build >= '2021-12-21'" class="col">
-<!--        <Toggle :value="shuffleSfx" @input="setShuffleSfx">{{ $t('rom.settings.shuffle_sfx') }}</Toggle>-->
+        <LTTPRToggle v-model="shuffleSfx">
+          {{ $t('rom.settings.shuffle_sfx') }}
+        </LTTPRToggle>
       </div>
+      <div
+        v-if="reduceFlashing && rom.build >= '2021-05-04'"
+        class="logic-warning text-info"
+        v-html="'* ' + $t('rom.settings.reduce_flashing_warning')"
+      />
     </div>
-    <div class="row mb-3">
-    </div>
-    <div
-      v-if="reduceFlashing && rom.build >= '2021-05-04'"
-      class="logic-warning text-info"
-      v-html="'* ' + $t('rom.settings.reduce_flashing_warning')"
-    />
+
   </div>
 </template>
 

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 
-import {PropType, ref} from "vue";
-import {RomData} from "@/dto/romData";
+import {ref} from "vue";
 import VueMultiselect from "vue-multiselect/src/Multiselect.vue";
 
 const props = defineProps({
@@ -21,7 +20,7 @@ const props = defineProps({
     default: true
   },
   customLabel: {
-    type: Object as PropType<(value: any) => string>,
+    type: String,
     default: () => { return 'henkie'}
   },
   value: {
@@ -37,11 +36,10 @@ const clearable = ref(props.clearable)
 const customLabel = ref(props.customLabel)
 const value = ref(props.value)
 
-console.log(options.value);
 
 const emit = defineEmits(['onSelect', 'onClear'])
 
-function onSelect(selection: any) {
+function onSelect(selection: unknown) {
   emit('onSelect', selection);
 }
 

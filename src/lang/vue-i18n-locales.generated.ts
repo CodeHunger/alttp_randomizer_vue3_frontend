@@ -1612,7 +1612,7 @@ export default {
             }
         }
     },
-    "en": {
+    "en-US": {
         "enemizer": {
             "title": "Enemizer",
             "enable": "Enable Enemizer",

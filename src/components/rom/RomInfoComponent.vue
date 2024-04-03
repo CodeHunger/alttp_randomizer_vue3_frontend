@@ -1,6 +1,13 @@
 <script setup lang="ts">
-import {computed, onBeforeMount, PropType, toRef} from "vue";
+import {computed, onBeforeMount, PropType, ref, toRef, watch} from "vue";
 import {RomData} from "@/dto/romData";
+import Toggle from '@vueform/toggle'
+import {availableLocales, getCurrentLocale, localesByCode} from "@/composables/getCurrentLocale";
+import LTTPToggle from "@/components/input/LTTPRToggle.vue";
+// import timeago from 'vue-timeago3'
+
+const currentLocale = getCurrentLocale();
+
 
 const props = defineProps({
   rom: {
@@ -10,11 +17,11 @@ const props = defineProps({
 })
 
 const rom = toRef<RomData>(props.rom)
-
-console.log('###', rom.value);
 const permalink = computed(() => {
   return window.location.origin + '/h/' + rom.value.hash
 })
+
+const date = rom.value.generated;
 
 </script>
 
@@ -56,9 +63,15 @@ const permalink = computed(() => {
     </div>
     <div v-if="rom.generated">
       {{ $t('rom.info.generated') }}:
-<!--      <timeago :datetime="rom.generated" :auto-update="60" :locale="$i18n.locale"></timeago>-->
+      <template v-for="localeCode in availableLocales" v-bind:key="localeCode">
+        <timeago v-if="currentLocale.code === localeCode"
+          :datetime="date"
+          :locale="localesByCode[localeCode]"
+          ></timeago>
+      </template>
     </div>
   </div>
+
 </template>
 
 <style scoped>
