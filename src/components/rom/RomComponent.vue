@@ -4,6 +4,7 @@ import {PropType, toRef} from "vue";
 import {RomData} from "@/dto/romData";
 import RomInfoComponent from "@/components/rom/RomInfoComponent.vue";
 import RomSettingsComponent from "@/components/rom/RomSettingsComponent.vue";
+import RomSpoilerComponent from "@/components/rom/RomSpoilerComponent.vue";
 
 const props = defineProps({
   rom: {
@@ -33,21 +34,6 @@ const saveRom = () => {
     >
       <strong>BE ADVISED:</strong> this festive has effects, which may potentially trigger seizures for people with photosensitive epilepsy.
     </div>
-<!--    <div v-if="error" class="alert alert-danger" role="alert">-->
-<!--      <button type="button" class="close" aria-label="Close">-->
-<!--        <img class="icon" src="/i/svg/x.svg" alt="clear" @click="error = false" />-->
-<!--      </button>-->
-<!--      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>-->
-<!--      <span class="sr-only">{{ $t('error.title') }}:</span>-->
-<!--      <span class="message">{{ this.error }}</span>-->
-<!--    </div>-->
-<!--    <rom-loader-->
-<!--      v-if="!romLoaded"-->
-<!--      @update="updateRom"-->
-<!--      @error="onError"-->
-<!--      :current-rom-hash="current_rom_hash"-->
-<!--      :override-base-bps="overrideBaseBps"-->
-<!--    ></rom-loader>-->
 
     <div id="seed-details" class="card border-success">
       <div class="card-header bg-success card-heading-btn" :class="{'bg-info': rom.spoiler.meta.tournament}">
@@ -90,8 +76,7 @@ const saveRom = () => {
             </div>
           </div>
         </div>
-        <p>vt-spoiler</p>
-<!--        <vt-spoiler :rom="rom"></vt-spoiler>-->
+        <rom-spoiler-component :spoiler="rom.spoiler"></rom-spoiler-component>
       </div>
     </div>
   </div>

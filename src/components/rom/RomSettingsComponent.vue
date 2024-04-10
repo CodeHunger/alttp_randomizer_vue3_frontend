@@ -4,6 +4,7 @@ import {RomData} from "@/dto/romData";
 import {useI18n} from "vue-i18n";
 import SelectComponent from "@/components/input/SelectComponent.vue";
 import LTTPRToggle from "@/components/input/LTTPRToggle.vue";
+import LTTPRSpriteSelect from "@/components/input/LTTPRSpriteSelect.vue";
 
 const props = defineProps({
   rom: {
@@ -138,31 +139,9 @@ const customLabel = (selection: {value: string, name: string}) => {
     </div>
     <div class="row mb-3">
       <div class="col-md-12">
-<!--        <vt-sprite-select-->
-<!--          id="sprite-gfx"-->
-<!--          :rom="rom"-->
-<!--          storage-key="rom.sprite-gfx"-->
-<!--          :title="$t('rom.settings.play_as')"-->
-<!--          @load-custom-sprite="loadCustomSprite"-->
-<!--        ></vt-sprite-select>-->
-        <vt-sprite-select
-          id="sprite-gfx"
-          :rom="rom"
-          storage-key="rom.sprite-gfx"
-          :title="$t('rom.settings.play_as')"
-        ></vt-sprite-select>
+        <LTTPRSpriteSelect></LTTPRSpriteSelect>
       </div>
     </div>
-<!--    <div v-if="showLoadCustomSprite" class="row mb-3">-->
-<!--      <div class="col-md-12">-->
-<!--        <vt-sprite-loader-->
-<!--          id="sprite-loader"-->
-<!--          :rom="rom"-->
-<!--          storage-key="rom.custom-sprite-gfx"-->
-<!--          @disallow-save-rom="disallowSaveRom"-->
-<!--        ></vt-sprite-loader>-->
-<!--      </div>-->
-<!--    </div>-->
     <div v-if="!rom.tournament" class="row mb-3">
       <div class="col-md-12">
         <select-component

@@ -72,7 +72,7 @@ function onClear() {
       ></vue-multiselect>
       <div v-if="clearable" class="input-group-append">
         <span class="input-group-text cursor-pointer" @click="onClear">
-          <img class="icon" src="/i/svg/x.svg" alt="clear" />
+          <img class="icon" src="../../assets/x.svg" alt="clear" />
         </span>
       </div>
     </div>
@@ -118,7 +118,7 @@ function onClear() {
   border-radius: 0.25rem;
 }
 
-.input-group-prepend {
+.input-group-prepend, .input-group-append {
   display: flex;
 }
 </style>
