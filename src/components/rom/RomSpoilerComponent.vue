@@ -1,23 +1,11 @@
 <script setup lang="ts">
 
-import {PropType, ref, toRef} from "vue";
+import {computed, PropType, ref, toRef} from "vue";
 import {Tab, Tabs} from "vue3-tabs-component";
 import SelectComponent from "@/components/input/SelectComponent.vue";
 import {RomData} from "@/dto/romData";
 
 const show = ref(true)
-
-const locations = [
-  "piet",
-  "piet2",
-  "henk",
-]
-
-const items = [
-  "sword",
-  "stick",
-  "frying pan",
-]
 
 const customLabel = (key: string) => {
   return key;
@@ -25,6 +13,31 @@ const customLabel = (key: string) => {
 
 const currentLocation = ref();
 const itemFilter = ref();
+
+const tabsOrder = [
+  "Bosses",
+  "Special",
+  "Equipped",
+  "Dark World",
+  "Ice Palace",
+  "Dark Palace",
+  "Light World",
+  "Misery Mire",
+  "Skull Woods",
+  "Turtle Rock",
+  "Castle Tower",
+  "Ganons Tower",
+  "Swamp Palace",
+  "Thieves Town",
+  "Desert Palace",
+  "Hyrule Castle",
+  "Tower Of Hera",
+  "Death Mountain",
+  "Eastern Palace",
+  "Shops",
+  "playthrough",
+  "meta",
+];
 
 const props = defineProps({
   spoiler: {
@@ -34,7 +47,20 @@ const props = defineProps({
 })
 
 const spoilers = toRef<RomData['spoiler']>(props.spoiler)
+const spoilersSorted = computed(() => {
+  const computed:{name: string, value: unknown}[] = [];
 
+  Object.keys(spoilers.value).forEach((key: string) => {
+    computed.push({
+      name: key,
+      value: spoilers.value[key],
+    })
+  });
+
+  return computed.sort((a, b) => {
+    return tabsOrder.indexOf(a.name) < tabsOrder.indexOf(b.name) ? -1 : 1;
+  })
+});
 </script>
 
 <template>
@@ -68,10 +94,24 @@ const spoilers = toRef<RomData['spoiler']>(props.spoiler)
         </div>
       </div>
       <tabs>
-        <tab v-for="(section, key) in spoilers" v-bind:key="key" :name="key">
-          <table class="table table-striped table-sm" v-if="key==='Shops'">
+        <tab v-for="item in spoilersSorted" v-bind:key="item.name" :name="item.name">
+          <table class="table table-striped table-sm" v-if="item.name==='Shops'">
           </table>
-          <table class="table table-striped table-sm" v-else-if="key==='Playthrough'">
+          <table class="table table-striped table-sm" v-else-if="item.name==='Playthrough'">
+          </table>
+          <table class="table table-striped table-sm" v-else-if="item.name==='meta'">
+            <thead>
+            <tr>
+              <th class="w-50">{{ $t('Setting') }}</th>
+              <th class="w-50">{{ $t('Value') }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(rowValue, rowKey) in item.value" v-bind:key="rowKey" class="spoil-item-location">
+              <td>{{String(rowKey).split(':')[0]}}</td> <!---->
+              <td class="item">{{ String(rowValue).split(":")[0] }}</td>
+            </tr>
+            </tbody>
           </table>
           <table class="table table-striped table-sm" v-else>
             <thead>
@@ -81,7 +121,7 @@ const spoilers = toRef<RomData['spoiler']>(props.spoiler)
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(rowValue, rowKey) in section" v-bind:key="rowKey" class="spoil-item-location">
+              <tr v-for="(rowValue, rowKey) in item.value" v-bind:key="rowKey" class="spoil-item-location">
                 <td>{{String(rowKey).split(':')[0]}}</td> <!---->
                 <td class="item">{{ $t('item.' + String(rowValue).split(":")[0])}}</td>
               </tr>

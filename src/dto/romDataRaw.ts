@@ -51,5 +51,5 @@ export interface RomDataRaw {
             "enemizer.enemy_shuffle": EnemyShuffle,
             spoilers_ongen?: boolean
         }
-    }
+    } & {[key: string]: {[key: string]: string}}
 }

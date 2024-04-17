@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import VueMultiselect from "vue-multiselect/src/Multiselect.vue";
 import "./sprites.scss"
-import {ref} from "vue";
 import {getSprites} from "@/composables/getSpriteData";
 const model = defineModel({type: Object});
 
