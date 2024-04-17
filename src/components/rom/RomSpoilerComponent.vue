@@ -4,12 +4,15 @@ import {computed, PropType, ref, toRef} from "vue";
 import {Tab, Tabs} from "vue3-tabs-component";
 import SelectComponent from "@/components/input/SelectComponent.vue";
 import {RomData} from "@/dto/romData";
+import {useI18n} from "vue-i18n";
 
 const show = ref(true)
 
 const customLabel = (key: string) => {
   return key;
 }
+
+const { t } = useI18n();
 
 const currentLocation = ref();
 const itemFilter = ref();
@@ -39,6 +42,15 @@ const tabsOrder = [
   "meta",
 ];
 
+const spoilerWithoutLocationData = [
+  "Bosses",
+  "playthrough",
+  "meta",
+  "Shops"
+];
+
+
+
 const props = defineProps({
   spoiler: {
     required: true,
@@ -47,6 +59,21 @@ const props = defineProps({
 })
 
 const spoilers = toRef<RomData['spoiler']>(props.spoiler)
+
+const regions = computed(() => {
+  const result: any[] = [];
+  Object.keys(spoilers).forEach((key) => {
+    if (
+      ["meta", "playthrough", "Entrances", "paths", "Shops"].indexOf(
+        key
+      ) === -1
+    ) {
+      result[key] = spoilers[key];
+    }
+  });
+  return result;
+})
+
 const spoilersSorted = computed(() => {
   const computed:{name: string, value: unknown}[] = [];
 
@@ -61,6 +88,55 @@ const spoilersSorted = computed(() => {
     return tabsOrder.indexOf(a.name) < tabsOrder.indexOf(b.name) ? -1 : 1;
   })
 });
+
+const locations = computed(() => {
+  let computed:string[] = [];
+
+  Object.keys(spoilers.value).forEach((key: string) => {
+    if (!spoilerWithoutLocationData.includes(key)) {
+      const currentLocationsSanitized = Object.keys(spoilers.value[key]).map((locationString: string) => locationString.replace(':1', ''));
+      computed = [
+        ...computed,
+        ...currentLocationsSanitized
+      ];
+    } else if (key === 'Shops') {
+      const shops = [];
+      Object.keys(spoilers.value[key]).forEach((shopId: string) => {
+        shops.push((spoilers.value[key][shopId] as unknown as {location: string}).location.replace(':1', ''))
+      });
+
+      computed = [
+        ...computed,
+        ...shops
+      ];
+    }
+  });
+  return computed.sort();
+});
+
+const items = computed(() => {
+  let computed:string[] = [];
+
+  Object.keys(spoilers.value).forEach((key: string) => {
+    if (!spoilerWithoutLocationData.includes(key)) {
+      const currentItemsSanitized = Object.values(spoilers.value[key]);
+      computed = [
+        ...computed,
+        ...currentItemsSanitized
+      ];
+    } else if (key === 'Shops') {
+      Object.keys(spoilers.value[key]).forEach((shopId: string) => {
+        for(let i = 0; i < 3; i++) {
+          if (spoilers.value[key][shopId]['item_' + i]) {
+            computed.push(spoilers.value[key][shopId]['item_' + i].item);
+          }
+        }
+      });
+    }
+  });
+
+  return [...new Set(computed.map((item) => t('item.' + item.replace(':1', ''))))].sort(); // make values unique and translate values
+})
 </script>
 
 <template>
