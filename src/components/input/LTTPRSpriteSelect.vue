@@ -2,12 +2,23 @@
 import VueMultiselect from "vue-multiselect/src/Multiselect.vue";
 import "./sprites.scss"
 import {getSprites} from "@/composables/getSpriteData";
+import {SpriteData} from "@/dto/spriteData";
 const model = defineModel({type: Object});
 
 
 
 const { sprites } = getSprites()
 const spriteOptions = sprites;
+
+const customLabel = (option: SpriteData) => {
+  const data = [
+    option.name,
+    option.author,
+    option.tags.join(':'),
+  ];
+
+  return data.join(':');
+}
 
 </script>
 <template>
@@ -24,6 +35,7 @@ const spriteOptions = sprites;
         :options="spriteOptions"
         :show-labels="false"
         :allow-empty="false"
+        :custom-label="customLabel"
       >
         <template #singleLabel="{ option }">
           <div class="option__desc">
