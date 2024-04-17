@@ -63,7 +63,7 @@ export interface RomDataRaw {
     readonly size: 2,
     readonly spoiler: {
         meta: Meta,
-        Shops: {[key: number]: Shop},
+        Shops: Shop[],
         playthrough: PlayThrough,
         Bosses: {[key: string]: string},
     } & {[key: string]: Region}

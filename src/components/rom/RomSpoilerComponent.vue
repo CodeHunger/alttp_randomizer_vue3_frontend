@@ -5,6 +5,7 @@ import {Tab, Tabs} from "vue3-tabs-component";
 import SelectComponent from "@/components/input/SelectComponent.vue";
 import {RomData} from "@/dto/romData";
 import {useI18n} from "vue-i18n";
+import {SpoilerDataSanitized} from "@/dto/spoilerDataSanitized";
 
 const show = ref(true)
 
@@ -54,60 +55,36 @@ const spoilerWithoutLocationData = [
 const props = defineProps({
   spoiler: {
     required: true,
-    type: Object as PropType<RomData['spoiler']>,
+    type: Object as PropType<SpoilerDataSanitized>,
   }
 })
 
-const spoilers = toRef<RomData['spoiler']>(props.spoiler)
+const spoilers = toRef<SpoilerDataSanitized>(props.spoiler)
+
+// const spoilersSorted = computed(() => {
+//   const computed:{name: string, value: unknown}[] = [];
+//
+//   Object.keys(spoilers.value).forEach((key: string) => {
+//     computed.push({
+//       name: key,
+//       value: spoilers.value[key],
+//     })
+//   });
+//
+//   return computed.sort((a, b) => {
+//     return tabsOrder.indexOf(a.name) < tabsOrder.indexOf(b.name) ? -1 : 1;
+//   })
+// });
 
 const regions = computed(() => {
-  const result: any[] = [];
-  Object.keys(spoilers).forEach((key) => {
-    if (
-      ["meta", "playthrough", "Entrances", "paths", "Shops"].indexOf(
-        key
-      ) === -1
-    ) {
-      result[key] = spoilers[key];
-    }
-  });
-  return result;
-})
-
-const spoilersSorted = computed(() => {
-  const computed:{name: string, value: unknown}[] = [];
-
-  Object.keys(spoilers.value).forEach((key: string) => {
-    computed.push({
-      name: key,
-      value: spoilers.value[key],
-    })
-  });
-
-  return computed.sort((a, b) => {
-    return tabsOrder.indexOf(a.name) < tabsOrder.indexOf(b.name) ? -1 : 1;
-  })
-});
-
-const locations = computed(() => {
   let computed:string[] = [];
 
-  Object.keys(spoilers.value).forEach((key: string) => {
+  Object.keys(spoilers.value.regions).forEach((key: string) => {
     if (!spoilerWithoutLocationData.includes(key)) {
-      const currentLocationsSanitized = Object.keys(spoilers.value[key]).map((locationString: string) => locationString.replace(':1', ''));
+      const currentLocationsSanitized = Object.keys(spoilers.value.regions[key]).map((locationString: string) => locationString.replace(':1', ''));
       computed = [
         ...computed,
         ...currentLocationsSanitized
-      ];
-    } else if (key === 'Shops') {
-      const shops = [];
-      Object.keys(spoilers.value[key]).forEach((shopId: string) => {
-        shops.push((spoilers.value[key][shopId] as unknown as {location: string}).location.replace(':1', ''))
-      });
-
-      computed = [
-        ...computed,
-        ...shops
       ];
     }
   });
@@ -117,9 +94,9 @@ const locations = computed(() => {
 const items = computed(() => {
   let computed:string[] = [];
 
-  Object.keys(spoilers.value).forEach((key: string) => {
+  Object.keys(spoilers.value.regions).forEach((key: string) => {
     if (!spoilerWithoutLocationData.includes(key)) {
-      const currentItemsSanitized = Object.values(spoilers.value[key]);
+      const currentItemsSanitized = Object.values(spoilers.value.regions[key]);
       computed = [
         ...computed,
         ...currentItemsSanitized
@@ -150,7 +127,7 @@ const items = computed(() => {
       <div class="row filters">
         <div class="col">
           <select-component
-            :options="locations"
+            :options="regions"
             :value="currentLocation"
             :custom-label="customLabel"
             :show-labels="false"
@@ -170,41 +147,126 @@ const items = computed(() => {
         </div>
       </div>
       <tabs>
-        <tab v-for="item in spoilersSorted" v-bind:key="item.name" :name="item.name">
-          <table class="table table-striped table-sm" v-if="item.name==='Shops'">
-          </table>
-          <table class="table table-striped table-sm" v-else-if="item.name==='Playthrough'">
-          </table>
-          <table class="table table-striped table-sm" v-else-if="item.name==='meta'">
+        <tab :name="'Bosses'">
+          <table class="table table-striped table-sm">
             <thead>
             <tr>
-              <th class="w-50">{{ $t('Setting') }}</th>
-              <th class="w-50">{{ $t('Value') }}</th>
+              <th class="w-50">Location</th>
+              <th class="w-50">Boss</th>
             </tr>
             </thead>
             <tbody>
-            <tr v-for="(rowValue, rowKey) in item.value" v-bind:key="rowKey" class="spoil-item-location">
-              <td>{{String(rowKey).split(':')[0]}}</td> <!---->
-              <td class="item">{{ String(rowValue).split(":")[0] }}</td>
+
+            <tr v-for="(bossName, location) in spoilers.bosses" v-bind:key="location" class="spoil-item-location">
+              <td>{{String(location).split(':')[0]}}</td> <!---->
+              <td class="item">{{ $t('item.' + String(bossName).split(":")[0])}}</td>
             </tr>
             </tbody>
           </table>
-          <table class="table table-striped table-sm" v-else>
+        </tab>
+        <tab v-for="(data, regionName) in spoilers.regions" v-bind:key="regionName" :name="regionName">
+          <table class="table table-striped table-sm">
+            <thead>
+            <tr>
+              <th class="w-50">Location</th>
+              <th class="w-50">Item</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(rowValue, rowKey) in data" v-bind:key="rowKey" class="spoil-item-location">
+              <td>{{String(rowKey).split(':')[0]}}</td> <!---->
+              <td class="item">{{ $t('item.' + String(rowValue).split(":")[0])}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </tab>
+        <tab :name="'Shops'">
+          <table class="table table-striped table-sm">
             <thead>
               <tr>
-                <th class="w-50">Location</th>
-                <th class="w-50">Item</th>
+                <th class="w-20">Location</th>
+                <th class="w-20">Type</th>
+                <th class="w-20">Item 1</th>
+                <th class="w-20">Item 2</th>
+                <th class="w-20">Item 3</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(rowValue, rowKey) in item.value" v-bind:key="rowKey" class="spoil-item-location">
-                <td>{{String(rowKey).split(':')[0]}}</td> <!---->
-                <td class="item">{{ $t('item.' + String(rowValue).split(":")[0])}}</td>
+              <tr v-for="shop in spoilers.shops" v-bind:key="shop.location" class="spoil-item-location">
+                <td>{{shop.location}}</td> <!---->
+                <td>{{shop.type}}</td>
+                <td class="item" v-if="shop.item_0">{{ $t('item.' + String(shop.item_0.item).split(":")[0])}}</td>
+                <td class="item" v-if="shop.item_1">{{ $t('item.' + String(shop.item_1.item).split(":")[0])}}</td>
+                <td class="item" v-if="shop.item_2">{{ $t('item.' + String(shop.item_2.item).split(":")[0])}}</td>
               </tr>
             </tbody>
           </table>
-
         </tab>
+        <tab :name="'Playthrough'">
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th class="w-20">{{ $t('Sphere') }}</th>
+                <th class="w-20">{{ $t('Region') }}</th>
+                <th class="w-20">{{ $t('Location') }}</th>
+                <th class="w-20">{{ $t('Item') }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <template v-for="(sphere, index) in spoilers.playthrough" v-bind:key="index">
+                <template v-if="!isNaN(index)">
+                  <template  v-for="(data, region) in sphere"  v-bind:key="region">
+                    <template v-for="(location, key) in data"  v-bind:key="key">
+                      <tr>
+                        <td>{{index}}</td>
+                        <td>{{region}}</td>
+                        <td>{{String(key).split(':')[0]}}</td>
+                        <td>{{String(location).split(':')[0]}}</td>
+                      </tr>
+                    </template>
+                  </template>
+                </template>
+              </template>
+
+            </tbody>
+          </table>
+        </tab>
+
+<!--        <tab v-for="item in spoilersSorted" v-bind:key="item.name" :name="item.name">-->
+<!--          <table class="table table-striped table-sm" v-if="item.name==='Shops'">-->
+<!--          </table>-->
+<!--          <table class="table table-striped table-sm" v-else-if="item.name==='Playthrough'">-->
+<!--          </table>-->
+<!--          <table class="table table-striped table-sm" v-else-if="item.name==='meta'">-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--              <th class="w-50">{{ $t('Setting') }}</th>-->
+<!--              <th class="w-50">{{ $t('Value') }}</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            <tr v-for="(rowValue, rowKey) in item.value" v-bind:key="rowKey" class="spoil-item-location">-->
+<!--              <td>{{String(rowKey).split(':')[0]}}</td> &lt;!&ndash;&ndash;&gt;-->
+<!--              <td class="item">{{ String(rowValue).split(":")[0] }}</td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--          </table>-->
+<!--          <table class="table table-striped table-sm" v-else>-->
+<!--            <thead>-->
+<!--              <tr>-->
+<!--                <th class="w-50">Location</th>-->
+<!--                <th class="w-50">Item</th>-->
+<!--              </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--              <tr v-for="(rowValue, rowKey) in item.value" v-bind:key="rowKey" class="spoil-item-location">-->
+<!--                <td>{{String(rowKey).split(':')[0]}}</td> &lt;!&ndash;&ndash;&gt;-->
+<!--                <td class="item">{{ $t('item.' + String(rowValue).split(":")[0])}}</td>-->
+<!--              </tr>-->
+<!--            </tbody>-->
+<!--          </table>-->
+
+<!--        </tab>-->
       </tabs>
     </div>
   </div>
