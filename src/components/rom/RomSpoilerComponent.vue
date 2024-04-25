@@ -15,33 +15,8 @@ const customLabel = (key: string) => {
 
 const { t } = useI18n();
 
-const currentLocation = ref();
+const currentLocation = ref('Blind\'s Hideout - Far Left');
 const itemFilter = ref();
-
-const tabsOrder = [
-  "Bosses",
-  "Special",
-  "Equipped",
-  "Dark World",
-  "Ice Palace",
-  "Dark Palace",
-  "Light World",
-  "Misery Mire",
-  "Skull Woods",
-  "Turtle Rock",
-  "Castle Tower",
-  "Ganons Tower",
-  "Swamp Palace",
-  "Thieves Town",
-  "Desert Palace",
-  "Hyrule Castle",
-  "Tower Of Hera",
-  "Death Mountain",
-  "Eastern Palace",
-  "Shops",
-  "playthrough",
-  "meta",
-];
 
 const spoilerWithoutLocationData = [
   "Bosses",
@@ -60,6 +35,10 @@ const props = defineProps({
 })
 
 const spoilers = toRef<SpoilerDataSanitized>(props.spoiler)
+
+const number = document.createElement('span');
+number.className = 'counter';
+number.innerHTML = "54";
 
 // const spoilersSorted = computed(() => {
 //   const computed:{name: string, value: unknown}[] = [];
@@ -114,6 +93,67 @@ const items = computed(() => {
 
   return [...new Set(computed.map((item) => t('item.' + item.replace(':1', ''))))].sort(); // make values unique and translate values
 })
+
+
+
+const searchResults = computed(() => {
+  const templates: {[key: string]: string} = {};
+
+
+  for (const [key, value] of Object.entries(spoilers.value.regions)) {
+    console.log(key, value);
+    const amount = Object.keys(value).filter((location) => location.includes(currentLocation.value)).length;
+    const numberBubble = document.createElement('span');
+    numberBubble.className = 'counter';
+    numberBubble.innerHTML = " " + amount
+    templates[key] = numberBubble.outerHTML;
+
+  }
+  // Object.values(value).filter(item => item == search.value).length
+  // + Object.keys(value).filter(location => location == search_location.value).length"
+  // [...Object.keys(spoilers.value.regions), ...spoilerWithoutLocationData].forEach((key) => {
+  //   amounts[key] = 0;
+  //   const numberBubble = document.createElement('span');
+  //   numberBubble.className = 'counter';
+  //   templates[key] = numberBubble;
+  //
+  //   if
+  // });
+
+  // Object.keys(templates).forEach((key) => {
+  //   //if (key )
+  // })
+
+
+  return templates;
+})
+
+console.log("@@@@@@", searchResults);
+
+for (const [key, value] of Object.entries(spoilers.value.regions)) {
+  console.log(key, value);
+}
+
+console.log('location results', spoilers.value.regions);
+
+const bubble = computed((amount) => {
+  if (!amount) {
+    return '';
+  }
+
+  //console.log("ZZZZZZZZZ", currentLocation, itemFilter, data)
+  const number = document.createElement('span');
+  number.className = 'counter';
+  number.innerHTML = ' ' + amount;
+
+  return number.outerHTML;
+// const bubble = function(data: { [key: string]: string}, currentLocation: string, itemFilter: string ) {
+//   let amount = Object.keys(data).filter(location => location.includes(currentLocation)).length;
+//   amount += Object.values(data).filter(item => item.includes(itemFilter)).length
+
+
+})
+
 </script>
 
 <template>
@@ -130,11 +170,13 @@ const items = computed(() => {
             :options="regions"
             :value="currentLocation"
             :custom-label="customLabel"
+            v-model="currentLocation"
             :show-labels="false"
             :placeholder="'Select location'"
             :clearable="true"
           >Select location</select-component>
         </div>
+        !!{{currentLocation}}!!
         <div class="col">
           <select-component
             :options="items"
@@ -147,6 +189,9 @@ const items = computed(() => {
         </div>
       </div>
       <tabs>
+        <template ref="test">
+          <span>32</span>
+        </template>
         <tab :name="'Bosses'">
           <table class="table table-striped table-sm">
             <thead>
@@ -164,19 +209,23 @@ const items = computed(() => {
             </tbody>
           </table>
         </tab>
-        <tab v-for="(data, regionName) in spoilers.regions" v-bind:key="regionName" :name="regionName">
+        <tab v-for="(data, regionName) in spoilers.regions"
+             v-bind:key="regionName"
+             :name="regionName"
+             :suffix="searchResults[regionName]"
+        >
           <table class="table table-striped table-sm">
             <thead>
-            <tr>
-              <th class="w-50">Location</th>
-              <th class="w-50">Item</th>
-            </tr>
+              <tr>
+                <th class="w-50">Location {{ data[currentLocation] ? "1" : 0 }}</th>
+                <th class="w-50">Item</th>
+              </tr>
             </thead>
             <tbody>
-            <tr v-for="(rowValue, rowKey) in data" v-bind:key="rowKey" class="spoil-item-location">
-              <td>{{String(rowKey).split(':')[0]}}</td> <!---->
-              <td class="item">{{ $t('item.' + String(rowValue).split(":")[0])}}</td>
-            </tr>
+              <tr v-for="(rowValue, rowKey) in data" v-bind:key="rowKey" class="spoil-item-location">
+                <td>{{String(rowKey).split(':')[0]}}</td> <!---->
+                <td class="item">{{ $t('item.' + String(rowValue).split(":")[0])}}</td>
+              </tr>
             </tbody>
           </table>
         </tab>
