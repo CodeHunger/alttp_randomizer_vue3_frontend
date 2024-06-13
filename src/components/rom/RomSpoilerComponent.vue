@@ -1,22 +1,21 @@
 <script setup lang="ts">
 
-import {computed, PropType, ref, toRef} from "vue";
+import {computed, PropType, ref, toRef, watch} from "vue";
 import {Tab, Tabs} from "vue3-tabs-component";
 import SelectComponent from "@/components/input/SelectComponent.vue";
-import {RomData} from "@/dto/romData";
 import {useI18n} from "vue-i18n";
 import {SpoilerDataSanitized} from "@/dto/spoilerDataSanitized";
 
 const show = ref(true)
 
-const customLabel = (key: string) => {
-  return key;
-}
-
 const { t } = useI18n();
 
-const currentLocation = ref('Blind\'s Hideout - Far Left');
-const itemFilter = ref();
+const itemLabel = (itemName: string) => {
+  return t('item.' + itemName)
+}
+
+const currentLocation = ref();
+const currentItem = ref();
 
 const spoilerWithoutLocationData = [
   "Bosses",
@@ -24,8 +23,6 @@ const spoilerWithoutLocationData = [
   "meta",
   "Shops"
 ];
-
-
 
 const props = defineProps({
   spoiler: {
@@ -35,25 +32,6 @@ const props = defineProps({
 })
 
 const spoilers = toRef<SpoilerDataSanitized>(props.spoiler)
-
-const number = document.createElement('span');
-number.className = 'counter';
-number.innerHTML = "54";
-
-// const spoilersSorted = computed(() => {
-//   const computed:{name: string, value: unknown}[] = [];
-//
-//   Object.keys(spoilers.value).forEach((key: string) => {
-//     computed.push({
-//       name: key,
-//       value: spoilers.value[key],
-//     })
-//   });
-//
-//   return computed.sort((a, b) => {
-//     return tabsOrder.indexOf(a.name) < tabsOrder.indexOf(b.name) ? -1 : 1;
-//   })
-// });
 
 const regions = computed(() => {
   let computed:string[] = [];
@@ -91,69 +69,73 @@ const items = computed(() => {
     }
   });
 
-  return [...new Set(computed.map((item) => t('item.' + item.replace(':1', ''))))].sort(); // make values unique and translate values
+
+  return [...new Set(computed.map((item) => item.replace(':1', '')))].sort(); // make values unique and translate values
 })
 
-
+watch(currentLocation, (newValue, oldValue) => {
+  console.log(`currentLocation changed from ${oldValue} to ${newValue}`);
+});
 
 const searchResults = computed(() => {
+  console.log(currentLocation.value, currentItem.value);
   const templates: {[key: string]: string} = {};
 
 
-  for (const [key, value] of Object.entries(spoilers.value.regions)) {
-    console.log(key, value);
-    const amount = Object.keys(value).filter((location) => location.includes(currentLocation.value)).length;
-    const numberBubble = document.createElement('span');
-    numberBubble.className = 'counter';
-    numberBubble.innerHTML = " " + amount
-    templates[key] = numberBubble.outerHTML;
 
+  for (const [regionName, regionData] of Object.entries(spoilers.value.regions)) {
+    let amount = 0;
+
+    for (const [location, item] of Object.entries(regionData)) {
+      if (item === currentItem.value + ":1") {
+        amount++;
+      }
+    }
+
+    if (currentLocation.value && Object.keys(regionData).filter((location) => location.includes(currentLocation.value)).length) {
+      amount++;
+    }
+
+    if (amount) {
+      const numberBubble = document.createElement('span');
+      numberBubble.className = 'counter';
+      numberBubble.innerHTML = " " + amount
+      templates[regionName] = numberBubble.outerHTML;
+    } else {
+      templates[regionName] = '';
+    }
   }
-  // Object.values(value).filter(item => item == search.value).length
-  // + Object.keys(value).filter(location => location == search_location.value).length"
-  // [...Object.keys(spoilers.value.regions), ...spoilerWithoutLocationData].forEach((key) => {
-  //   amounts[key] = 0;
-  //   const numberBubble = document.createElement('span');
-  //   numberBubble.className = 'counter';
-  //   templates[key] = numberBubble;
-  //
-  //   if
-  // });
 
-  // Object.keys(templates).forEach((key) => {
-  //   //if (key )
-  // })
+  if (!currentItem.value) {
+    templates['playthrough'] = '';
+  } else {
+    const regExp = new RegExp(currentItem.value, "gi");
+   let playthoughCount = 0;
 
+    console.log('1221212', spoilers.value.playthrough)
+
+    Object.values(spoilers.value.playthrough).forEach((step) => {
+      Object.values(step).forEach((subStep) => {
+        Object.values(subStep).forEach((item) => {
+          if (String(item).split(':')[0] === currentItem.value) {
+            playthoughCount++;
+          }
+        });
+      });
+    })
+
+    if (playthoughCount) {
+      const numberBubble = document.createElement('span');
+      numberBubble.className = 'counter';
+      numberBubble.innerHTML = " " + playthoughCount
+      templates['playthrough'] = numberBubble.outerHTML;
+    } else {
+      templates['playthrough'] = '';
+    }
+  }
 
   return templates;
 })
-
-console.log("@@@@@@", searchResults);
-
-for (const [key, value] of Object.entries(spoilers.value.regions)) {
-  console.log(key, value);
-}
-
-console.log('location results', spoilers.value.regions);
-
-const bubble = computed((amount) => {
-  if (!amount) {
-    return '';
-  }
-
-  //console.log("ZZZZZZZZZ", currentLocation, itemFilter, data)
-  const number = document.createElement('span');
-  number.className = 'counter';
-  number.innerHTML = ' ' + amount;
-
-  return number.outerHTML;
-// const bubble = function(data: { [key: string]: string}, currentLocation: string, itemFilter: string ) {
-//   let amount = Object.keys(data).filter(location => location.includes(currentLocation)).length;
-//   amount += Object.values(data).filter(item => item.includes(itemFilter)).length
-
-
-})
-
 </script>
 
 <template>
@@ -167,24 +149,21 @@ const bubble = computed((amount) => {
       <div class="row filters">
         <div class="col">
           <select-component
-            :options="regions"
-            :value="currentLocation"
-            :custom-label="customLabel"
             v-model="currentLocation"
+            :options="regions"
             :show-labels="false"
             :placeholder="'Select location'"
             :clearable="true"
           >Select location</select-component>
         </div>
-        !!{{currentLocation}}!!
         <div class="col">
           <select-component
+            v-model="currentItem"
             :options="items"
-            :value="itemFilter"
-            :custom-label="customLabel"
             :show-labels="false"
             :placeholder="'Search for item'"
             :clearable="true"
+            :custom-label="itemLabel"
           >Search for item</select-component>
         </div>
       </div>
@@ -222,7 +201,10 @@ const bubble = computed((amount) => {
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(rowValue, rowKey) in data" v-bind:key="rowKey" class="spoil-item-location">
+              <tr v-for="(rowValue, rowKey) in data" v-bind:key="rowKey"
+                  class="spoil-item-location"
+                  :class="{match: currentItem === String(rowValue).split(':')[0] || currentLocation === String(rowKey).split(':')[0]}"
+              >
                 <td>{{String(rowKey).split(':')[0]}}</td> <!---->
                 <td class="item">{{ $t('item.' + String(rowValue).split(":")[0])}}</td>
               </tr>
@@ -251,7 +233,9 @@ const bubble = computed((amount) => {
             </tbody>
           </table>
         </tab>
-        <tab :name="'Playthrough'">
+        <tab :name="'Playthrough'"
+             :suffix="searchResults['playthrough']"
+        >
           <table class="table table-striped table-sm">
             <thead>
               <tr>
@@ -265,57 +249,20 @@ const bubble = computed((amount) => {
               <template v-for="(sphere, index) in spoilers.playthrough" v-bind:key="index">
                 <template v-if="!isNaN(index)">
                   <template  v-for="(data, region) in sphere"  v-bind:key="region">
-                    <template v-for="(location, key) in data"  v-bind:key="key">
-                      <tr>
+                    <template v-for="(item, key) in data"  v-bind:key="key">
+                      <tr :class="{match: currentItem === String(item).split(':')[0]}">
                         <td>{{index}}</td>
                         <td>{{region}}</td>
                         <td>{{String(key).split(':')[0]}}</td>
-                        <td>{{String(location).split(':')[0]}}</td>
+                        <td>{{t('item.' + String(item).split(':')[0])}}</td>
                       </tr>
                     </template>
                   </template>
                 </template>
               </template>
-
             </tbody>
           </table>
         </tab>
-
-<!--        <tab v-for="item in spoilersSorted" v-bind:key="item.name" :name="item.name">-->
-<!--          <table class="table table-striped table-sm" v-if="item.name==='Shops'">-->
-<!--          </table>-->
-<!--          <table class="table table-striped table-sm" v-else-if="item.name==='Playthrough'">-->
-<!--          </table>-->
-<!--          <table class="table table-striped table-sm" v-else-if="item.name==='meta'">-->
-<!--            <thead>-->
-<!--            <tr>-->
-<!--              <th class="w-50">{{ $t('Setting') }}</th>-->
-<!--              <th class="w-50">{{ $t('Value') }}</th>-->
-<!--            </tr>-->
-<!--            </thead>-->
-<!--            <tbody>-->
-<!--            <tr v-for="(rowValue, rowKey) in item.value" v-bind:key="rowKey" class="spoil-item-location">-->
-<!--              <td>{{String(rowKey).split(':')[0]}}</td> &lt;!&ndash;&ndash;&gt;-->
-<!--              <td class="item">{{ String(rowValue).split(":")[0] }}</td>-->
-<!--            </tr>-->
-<!--            </tbody>-->
-<!--          </table>-->
-<!--          <table class="table table-striped table-sm" v-else>-->
-<!--            <thead>-->
-<!--              <tr>-->
-<!--                <th class="w-50">Location</th>-->
-<!--                <th class="w-50">Item</th>-->
-<!--              </tr>-->
-<!--            </thead>-->
-<!--            <tbody>-->
-<!--              <tr v-for="(rowValue, rowKey) in item.value" v-bind:key="rowKey" class="spoil-item-location">-->
-<!--                <td>{{String(rowKey).split(':')[0]}}</td> &lt;!&ndash;&ndash;&gt;-->
-<!--                <td class="item">{{ $t('item.' + String(rowValue).split(":")[0])}}</td>-->
-<!--              </tr>-->
-<!--            </tbody>-->
-<!--          </table>-->
-
-<!--        </tab>-->
       </tabs>
     </div>
   </div>
@@ -334,9 +281,6 @@ const bubble = computed((amount) => {
   cursor: default;
   font-size: 10px;
   font-weight: bold;
-  padding: 5px;
-}
-.spoiler-text {
   padding: 5px;
 }
 
@@ -376,6 +320,27 @@ table {
   margin-bottom: 1rem;
 }
 
+:deep .counter {
+  display: inline-block;
+  padding: 0.25em 0.6em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  border-radius: 10rem;
 
+  color: #fff;
+  background-color: #6c757d;
 
+  position: relative;
+  top: -2px;
+  left: 5px;
+}
+
+.match td {
+  background-color: #17a2b8 !important;
+}
 </style>

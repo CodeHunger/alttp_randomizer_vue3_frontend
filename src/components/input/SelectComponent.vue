@@ -20,13 +20,19 @@ const props = defineProps({
     default: true
   },
   customLabel: {
-    type: String,
-    default: () => { return 'henkie'}
+    type: Function,
+    default: (key: string) => {
+      return key;
+    }
   },
   value: {
     type: Object,
     default: null
   },
+  modelValue: {
+    type: String,
+    default: null
+  }
 })
 
 const noRace = ref(props.noRace)
@@ -36,15 +42,18 @@ const clearable = ref(props.clearable)
 const customLabel = ref(props.customLabel)
 const value = ref(props.value)
 
-
-const emit = defineEmits(['onSelect', 'onClear'])
+const emit = defineEmits(['onSelect', 'onClear', 'update:modelValue'])
 
 function onSelect(selection: unknown) {
-  emit('onSelect', selection);
+  emit('onSelect', selection)
+  emit('update:modelValue', selection);
 }
 
 function onClear() {
+  console.log('clear!!');
+  value.value = null;
   emit('onClear');
+  onSelect(null);
 }
 </script>
 
@@ -60,6 +69,7 @@ function onClear() {
           </sup>
         </span>
       </div>
+
       <vue-multiselect
         class="form-control"
         v-model="value"
@@ -115,10 +125,23 @@ function onClear() {
   white-space: nowrap;
   background-color: #e9ecef;
   border: 1px solid #ced4da;
-  border-radius: 0.25rem;
+  //border-radius: 0.25rem;
 }
 
 .input-group-prepend, .input-group-append {
   display: flex;
 }
+
+.input-group-append span {
+  border-radius: 0 var(--bs-border-radius) var(--bs-border-radius) 0;
+}
+
+.input-group-prepend span {
+  border-radius: var(--bs-border-radius) 0 0 var(--bs-border-radius);
+}
+
+:deep .multiselect__tags {
+  border-radius: 0;
+}
+
 </style>
