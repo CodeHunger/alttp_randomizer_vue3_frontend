@@ -7409,7 +7409,7 @@
           "spoilers": "off",
           "world_id": 1,
           "item_pool": "normal",
-          "tournament": false,
+          "tournament": true,
           "pseudoboots": false,
           "accessibility": "none",
           "dungeon_items": "full",

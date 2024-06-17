@@ -140,10 +140,12 @@ const searchResults = computed(() => {
     <div class="spoiler-toggle" @click="show = !show">
       <img v-if="!show" src="../../assets/plus.svg" alt="plus"/>
       <img v-if="show" src="../../assets/minus.svg" alt="minus"/>
-      Spoiler!
+      <span v-if="spoiler.meta.spoilers === 'on'">Spoiler!</span>
+      <span v-else>Meta data</span>
+
     </div>
     <div v-if="show" class="spoiler-tabed">
-      <div class="row filters">
+      <div v-if="spoiler.meta.spoilers === 'on'" class="row filters">
         <div class="col">
           <select-component
             v-model="currentLocation"
@@ -170,7 +172,7 @@ const searchResults = computed(() => {
         <template ref="test">
           <span>32</span>
         </template>
-        <tab :name="'Bosses'">
+        <tab v-if="spoilers.bosses" :name="'Bosses'">
           <alttpr-table>
             <thead>
             <tr>
@@ -209,7 +211,7 @@ const searchResults = computed(() => {
             </tbody>
           </alttpr-table>
         </tab>
-        <tab :name="'Shops'">
+        <tab v-if="spoilers.shops" :name="'Shops'">
           <alttpr-table>
             <thead>
             <tr>
@@ -231,8 +233,9 @@ const searchResults = computed(() => {
             </tbody>
           </alttpr-table>
         </tab>
-        <tab :name="'Playthrough'"
-             :suffix="searchResults['playthrough']"
+        <tab v-if="spoilers.playthrough"
+            :name="'Playthrough'"
+            :suffix="searchResults['playthrough']"
         >
           <alttpr-table>
             <thead>
@@ -258,6 +261,22 @@ const searchResults = computed(() => {
                 </template>
               </template>
             </template>
+            </tbody>
+          </alttpr-table>
+        </tab>
+        <tab v-if="spoilers.meta" key="meta" name="Meta">
+          <alttpr-table>
+            <thead>
+            <tr>
+              <th>Setting</th>
+              <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(value, setting) in spoilers.meta" :key="setting">
+              <td>{{ setting }}</td>
+              <td>{{ value }}</td>
+            </tr>
             </tbody>
           </alttpr-table>
         </tab>
@@ -333,5 +352,12 @@ const searchResults = computed(() => {
   position: relative;
   top: -2px;
   left: 5px;
+}
+
+.spoiler-toggle span {
+  margin-left: 5px;
+  display: inline-block;
+  position: relative;
+  top: 1px;
 }
 </style>

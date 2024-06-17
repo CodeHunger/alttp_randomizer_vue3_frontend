@@ -36,7 +36,7 @@ const saveRom = () => {
     </div>
 
     <div id="seed-details" class="card border-success">
-      <div class="card-header bg-success card-heading-btn" :class="{'bg-info': rom.spoiler.meta.tournament}">
+      <div class="card-header bg-success card-heading-btn" :class="{'tournament': rom.spoiler.meta.tournament}">
         <h3
           class="card-title text-white float-left"
         >{{ rom.spoiler.meta.name || $t('randomizer.details.title') }}</h3>
@@ -60,6 +60,7 @@ const saveRom = () => {
                 <div class="btn-group btn-flex" role="group">
                   <button
                     class="btn btn-success text-center"
+                    :class="{tournament: rom.spoiler.meta.tournament}"
                     :disabled="disableSaveRomButton"
                     @click="saveRom"
                   >{{ $t('randomizer.details.save_rom') }}</button>
@@ -68,11 +69,6 @@ const saveRom = () => {
             </div>
             <div class="row">
               <rom-settings-component :rom="rom"></rom-settings-component>
-<!--              <vt-rom-settings-->
-<!--                class="col-12"-->
-<!--                :rom="rom"-->
-<!--                @disallow-save-rom="disallowSaveRom"-->
-<!--              ></vt-rom-settings>-->
             </div>
           </div>
         </div>
@@ -83,11 +79,16 @@ const saveRom = () => {
 </template>
 
 <style scoped>
-.bg-info {
-  background-color: #17a2b8 !important;
-}
-
 .btn-group {
   display: flex;
+}
+
+.tournament {
+  background-color: #17a2b8 !important;
+  border-color: rgb(23, 162, 184);
+}
+
+h3 {
+  margin: 0;
 }
 </style>
