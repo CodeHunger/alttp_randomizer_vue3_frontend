@@ -206,5 +206,8 @@ const customLabel = (selection: {value: string, name: string}) => {
 </template>
 
 <style scoped>
-
+:deep p {
+  display: inline;
+  margin-left: 1rem;
+}
 </style>

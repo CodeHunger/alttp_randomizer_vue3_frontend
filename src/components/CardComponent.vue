@@ -1,6 +1,6 @@
 <template>
-  <div class="card border-info mt-4">
-    <div class="card-header bg-info">
+  <div class="card border-info">
+    <div class="card-header">
       <a v-if="anchor" class="anchor" :id="anchor"></a>
       <h3 class="card-title text-white">
         <slot name="header"></slot>
@@ -16,17 +16,21 @@ h3 {
   padding: 0;
 }
 
-.bg-info {
-  background-color: #17a2b8 !important;
+.card-header {
+  background-color: v-bind(headerColor);
 }
 </style>
 
 <script setup>
-import { toRefs } from 'vue';
+import {ref, toRefs} from 'vue';
 
 const props = defineProps({
-  anchor: String
+  anchor: String,
+  headerColor: {
+    type: String,
+    default: '#17a2b8',
+  }
 })
-const { anchor } = toRefs(props);
+const { anchor, headerColor } = toRefs(props);
 
 </script>

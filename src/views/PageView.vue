@@ -22,6 +22,16 @@
 h4 {
   font-weight: bold;
 }
+
+p {
+  margin-bottom: 0;
+}
+
+p + p {
+  padding-top: 0 !important
+
+}
+
 </style>
 <script setup lang="ts">
 import CardComponent from "@/components/CardComponent.vue";

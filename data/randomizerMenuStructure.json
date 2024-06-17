@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Randomizer",
+    "version": "1.0",
+    "author": "veetorp",
+    "tabs": [],
+    "presets": [
+      "default",
+      "beginner",
+      "veetorp",
+      "crosskeys",
+      "quick",
+      "nightmare",
+      "custom"
+    ],
+    "sections": [
+      {
+        "name": "item placement",
+        "inputs": ["glitchesRequired", "itemPlacement", "dungeonItemShuffle", "accesibility"]
+      },
+      {
+        "name": "goal",
+        "inputs": ["goal", "openTower", "ganonVulnerable"]
+      },
+      {
+        "name": "gameplay",
+        "inputs": ["wordState", "entraceShuffle", "bossShuffle", "enemyShuffle", "hints"]
+      },
+      {
+        "name": "difficulty",
+        "inputs": ["swords", "itemPool", "itemFunctionality", "enemyDamage", "enemyHealth"]
+      }
+    ]
+  }
+]

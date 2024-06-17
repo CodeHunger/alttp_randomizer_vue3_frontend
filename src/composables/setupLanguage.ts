@@ -3,7 +3,7 @@ import {useI18n} from "vue-i18n";
 
 export const STORAGE_KEY = "appLanguage";
 const SUPPORTED_LANGUAGES = ['en', 'de', 'fr', 'es'];
-const DEFAULT_LANGUAGE = 'es';
+const DEFAULT_LANGUAGE = 'en';
 export default function setupLanguage() {
     const { locale } = useI18n();
     const browserLanguage = getBrowserLanguage();

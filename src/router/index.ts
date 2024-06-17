@@ -9,6 +9,8 @@ import RacesView from "@/views/RacesView.vue";
 import UpdatesView from "@/views/UpdatesView.vue";
 import ContributeView from "@/views/ContributeView.vue";
 import GameView from "@/views/GameView.vue";
+import DailyView from "@/views/DailyView.vue";
+import RandomizerOptionsView from "@/views/RandomizerOptionsView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -55,13 +57,16 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/daily',
     name: 'daily',
-    component: PageView,
-    props: { contentKey: 'daily'}
+    component: DailyView,
   },
-
+  {
+    path: '/randomizer',
+    name: 'randomizer',
+    component: RandomizerOptionsView,
+  },
   {
     path: '/h/:hash',
-    name: 'daily',
+    name: 'game',
     component: GameView,
     props: true
   },
